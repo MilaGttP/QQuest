@@ -1,0 +1,41 @@
+.title {
+    font-weight: 600;
+    padding: 1em 0;
+}
+
+.listContainer {
+    overflow-y: auto;
+    height: 35vh;
+    padding-right: 0.5em;
+    margin-right: -0.5em;
+}
+
+.listContainer::-webkit-scrollbar {
+    width: 5px;
+}
+
+.listContainer::-webkit-scrollbar-thumb {
+    background-color: #dadfea;
+    border-radius: 0.2em;
+}
+
+.buttonContainer {
+    width: 50vw;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2.5em;
+}
+
+.newButton {
+    font-weight: 600;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    border: #5a6170 2px solid;
+    color: #5a6170;
+    background: #dadfea;
+    transition: 0.2s;
+}
+
+.newButton:hover {
+    background: #33FF66;
+}

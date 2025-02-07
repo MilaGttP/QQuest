@@ -39,7 +39,7 @@
     padding-bottom: 0.5em;
 }
 
-.score span {
+.score span, .quests span {
     color: #9da6b8;
     font-weight: 600;
 }

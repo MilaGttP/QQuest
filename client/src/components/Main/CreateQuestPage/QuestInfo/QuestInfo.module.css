@@ -1,0 +1,64 @@
+.questInfo {
+    padding: 0 1em;
+}
+
+.info {
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.info select {
+    padding: 0.5em;
+    color: #5a6170;
+    font-weight: 600;
+    border-radius: 0.2em;
+    border: 2px #9da6b8 solid;
+    background: #dadfea;
+    outline: none;
+}
+
+.info input {
+    padding: 0.5em;
+    border: 2px #9da6b8 solid;
+    width: 5em;
+    margin: 1em;
+    border-radius: 0.2em;
+    color: #5a6170;
+    font-weight: 600;
+    outline: none;
+}
+
+.questInfo textarea {
+    /*margin: 1em;*/
+    padding: 0.5em;
+    width: 100%;
+    box-sizing: border-box;
+    height: 10em;
+    border: 2px #9da6b8 solid;
+    border-radius: 0.2em;
+    outline: none;
+    background: #dadfea;
+    font-weight: 600;
+    color: #5a6170;
+}
+
+.saveButton {
+    font-weight: 600;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    border: #5a6170 2px solid;
+    color: #5a6170;
+    background: #dadfea;
+    transition: 0.2s;
+}
+
+.saveButton:hover {
+    background: #33FF66;
+}

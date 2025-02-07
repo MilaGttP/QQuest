@@ -1,0 +1,13 @@
+.item {
+    width: 50vw;
+    padding: 1em;
+    margin: 0.5em 0;
+    border: 2px #9da6b8 solid;
+    box-sizing: border-box;
+    border-radius: 0.2em;
+    transition: 0.2s;
+}
+
+.item:hover {
+    box-shadow: 0.3em 0.3em 0 #dadfea;
+}
