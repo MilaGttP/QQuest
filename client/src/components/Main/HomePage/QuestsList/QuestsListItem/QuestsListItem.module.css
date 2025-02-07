@@ -1,0 +1,48 @@
+.item {
+    /*height: 15em;*/
+    width: 18em;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    border: 2px #9da6b8 solid;
+    border-radius: 0.2em;
+    /*background: #dadfea;*/
+    transition: 0.1s;
+}
+
+.item:hover {
+    box-shadow: 0.3em 0.3em 0 #dadfea;
+}
+
+.item:hover .title span {
+    background: #dadfea;
+}
+
+.item img {
+    height: 7em;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+}
+
+.info {
+    padding: 0.5em;
+}
+
+.title {
+    font-weight: 600;
+    padding-bottom: 0.5em;
+}
+
+.description {
+    font-size: 0.9em;
+    padding-top: 1em;
+}
+
+.additional {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #9da6b8;
+}

@@ -1,0 +1,22 @@
+.questsList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2em 0;
+    justify-content: center;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.questsList::-webkit-scrollbar {
+    width: 0.4em;
+    display: none;
+}
+
+.questsList::-webkit-scrollbar-thumb {
+    background-color: #dadfea;
+    border-radius: 0.2em;
+}
+
+.questsList::-webkit-scrollbar-thumb:hover {
+    background-color: #9da6b8;
+}

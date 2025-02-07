@@ -1,0 +1,15 @@
+.rating {
+    width: 30vw;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1em;
+    /*border-left: #5a6170 2px solid;*/
+}
+
+.title {
+    text-align: center;
+    /*font-size: 1.1em;*/
+    font-weight: 600;
+    /*color: #9da6b8;*/
+    padding: 1em;
+}

@@ -1,0 +1,18 @@
+.homePage {
+    display: flex;
+    width: 100vw;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.questsContainer {
+    padding: 1em;
+    box-sizing: border-box;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: #5a6170 2px solid;
+}

@@ -6,3 +6,8 @@
   min-height: 100vh;
   color: #5a6170;
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
