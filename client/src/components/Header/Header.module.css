@@ -1,0 +1,7 @@
+header {
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    border-bottom: 2px #9da6b8 solid;
+    /*border-bottom: 2px #dadfea solid;*/
+}
