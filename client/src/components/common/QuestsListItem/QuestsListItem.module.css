@@ -19,10 +19,14 @@
 }
 
 .item img {
-    height: 7em;
+    height: 10em;
     width: 100%;
     object-fit: cover;
     opacity: 0.85;
+    padding: 0.5em;
+    box-sizing: border-box;
+    border-bottom: 2px #9da6b8 solid;
+    background: #dadfea;
 }
 
 .info {
@@ -31,7 +35,13 @@
 
 .title {
     font-weight: 600;
+}
+
+.questions {
+    font-weight: 600;
+    font-size: 0.9em;
     padding-bottom: 0.5em;
+    color: #9da6b8;
 }
 
 .description {

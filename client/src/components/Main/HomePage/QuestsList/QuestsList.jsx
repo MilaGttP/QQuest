@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./QuestsList.module.css";
-import QuestsListItem from "./QuestsListItem/QuestsListItem";
+import QuestsListItem from "../../../common/QuestsListItem/QuestsListItem";
 
 
 const QuestsList = () => {

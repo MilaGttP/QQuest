@@ -1,0 +1,35 @@
+.myQuests {
+    padding: 1em;
+}
+
+.title {
+    padding: 1em;
+    font-weight: 600;
+}
+
+.questsList {
+    display: flex;
+    justify-content: flex-start;
+    max-width: 90vw;
+    flex-wrap: wrap;
+    overflow-x: auto;
+}
+
+.newButton {
+    font-size: 2.5em;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    border: #5a6170 2px solid;
+    color: #5a6170;
+    background: #dadfea;
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    transition: 0.2s;
+}
+
+.newButton:hover {
+    /*box-shadow: 0.1em 0.1em 0 #dadfea;*/
+    background: #33FF66;
+}

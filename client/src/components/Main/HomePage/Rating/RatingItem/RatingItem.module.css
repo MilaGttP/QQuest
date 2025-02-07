@@ -1,6 +1,19 @@
 .ratingItem {
     padding: 1em;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    overflow-y: auto;
+}
+
+.title {
+    font-weight: 600;
+    background: #dadfea;
+}
+
+.info {
+    font-size: 0.9em;
+    font-weight: 600;
+    color: #9da6b8;
     display: flex;
     justify-content: space-between;
-    overflow-y: auto;
 }

@@ -1,0 +1,17 @@
+.achievements {
+    background: #dadfea;
+    width: 50vw;
+    box-sizing: border-box;
+    padding: 1em;
+}
+
+.title {
+    font-weight: 600;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

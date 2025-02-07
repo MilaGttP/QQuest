@@ -1,0 +1,45 @@
+.userInfo {
+    padding: 2em;
+    display: flex;
+    border-right: 2px #9da6b8 solid;
+    width: 50vw;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar img {
+    border-radius: 50%;
+    height: 10em;
+    width: 10em;
+}
+
+.rating {
+    width: 10em;
+    text-align: center;
+    font-weight: 600;
+}
+
+.info {
+    padding: 1em;
+}
+
+.name {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.email {
+    font-weight: 600;
+    color: #9da6b8;
+    padding-bottom: 1em;
+}
+
+.status {
+    padding-bottom: 0.5em;
+}
+
+.score span {
+    color: #9da6b8;
+    font-weight: 600;
+}

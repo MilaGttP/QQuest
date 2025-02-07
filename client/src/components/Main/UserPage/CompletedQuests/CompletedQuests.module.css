@@ -1,0 +1,14 @@
+.completedQuests {
+    padding: 1em;
+}
+
+.title {
+    font-weight: 600;
+    padding: 1em;
+}
+
+.questsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
