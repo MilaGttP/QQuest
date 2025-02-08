@@ -1,4 +1,4 @@
-@qquest_backend_HostAddress = http://localhost:5272
+@qquest_backend_HostAddress = http://localhost:5241
 
 GET {{qquest_backend_HostAddress}}/weatherforecast/
 Accept: application/json
