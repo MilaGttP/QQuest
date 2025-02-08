@@ -1,6 +1,6 @@
 .homePage {
     display: flex;
-    width: 100vw;
+    width: 98vw;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: stretch;
@@ -14,5 +14,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: #9da6b8 2px solid;
+    /*border-right: #9da6b8 2px solid;*/
 }
+
+@media screen and (max-width: 40em) {
+    .homePage {
+        flex-direction: column-reverse;
+    }
+
+    .questsContainer {
+        width: 100%;
+    }
+}
+

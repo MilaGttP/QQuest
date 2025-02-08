@@ -1,6 +1,7 @@
 .title {
     font-weight: 600;
     padding: 1em 0;
+    font-size: 1.2em;
 }
 
 .listContainer {
@@ -20,7 +21,7 @@
 }
 
 .buttonContainer {
-    width: 50vw;
+    width: 45vw;
     display: flex;
     justify-content: flex-end;
     padding-top: 2.5em;
@@ -38,4 +39,24 @@
 
 .newButton:hover {
     background: #33FF66;
+}
+
+@media screen and (max-width: 40em) {
+    .list {
+        width: 100%;
+        padding: 0 1em;
+        box-sizing: border-box;
+    }
+
+    .listContainer {
+        width: 100%;
+        overflow-y: unset;
+        height: unset;
+    }
+
+    .buttonContainer {
+        width: 100%;
+        margin: 0;
+        padding-top: 0.5em;
+    }
 }

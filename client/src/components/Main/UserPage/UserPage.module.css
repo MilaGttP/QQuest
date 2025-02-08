@@ -6,9 +6,15 @@
 }
 
 .userContainer {
-    border-bottom: 2px #9da6b8 solid;
+    /*border-bottom: 2px #9da6b8 solid;*/
     box-sizing: border-box;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 40em) {
+    .userContainer {
+        flex-direction: column;
+    }
 }

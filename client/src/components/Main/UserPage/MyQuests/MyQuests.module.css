@@ -3,8 +3,9 @@
 }
 
 .title {
-    padding: 1em;
+    padding: 0 1em 0.5em;
     font-weight: 600;
+    font-size: 1.2em;
 }
 
 .questsList {
@@ -27,9 +28,16 @@
     bottom: 1em;
     right: 1em;
     transition: 0.2s;
+    z-index: 10;
 }
 
 .newButton:hover {
     /*box-shadow: 0.1em 0.1em 0 #dadfea;*/
     background: #33FF66;
+}
+
+@media screen and (max-width: 40em) {
+    .title {
+        text-align: center;
+    }
 }

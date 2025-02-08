@@ -1,15 +1,44 @@
 .rating {
     width: 30vw;
-    height: 100%;
+    height: 80vh;
     box-sizing: border-box;
-    padding: 1em;
-    /*border-left: #5a6170 2px solid;*/
+    margin: 2em 2em 2em 0;
+    border: #9da6b8 2px solid;
+    box-shadow: 0.3em 0.3em 0 #dadfea;
+}
+
+.ratingHeader {
+    height: 1.5em;
+    width: 100%;
+    background: #dadfea;
+    border-bottom: #9da6b8 2px solid;
+    display: flex;
+    align-items: center;
+}
+
+.ratingHeader div {
+    margin: 0 0.5em;
+    padding: 5px;
+    background: #ffffff;
+    border: #9da6b8 2px solid;
+    border-radius: 50%;
 }
 
 .title {
     text-align: center;
-    /*font-size: 1.1em;*/
     font-weight: 600;
-    /*color: #9da6b8;*/
     padding: 1em;
+}
+
+.list {
+    padding: 0 1em;
+}
+
+@media screen and (max-width: 40em) {
+    .rating {
+        margin: 1em;
+        width: 90%;
+        height: 20em;
+        overflow-y: auto;
+    }
 }

@@ -1,0 +1,26 @@
+.questions {
+    padding: 1em;
+    width: 35vw;
+    box-sizing: border-box;
+}
+
+.questTitle {
+    padding: 1em 0.5em 0;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.questTitle span {
+    background: #cfe0f8;
+}
+
+.title {
+    font-weight: 600;
+    padding: 1em 0.5em;
+}
+
+@media screen and (max-width: 40em) {
+    .questions {
+        width: 100%;
+    }
+}

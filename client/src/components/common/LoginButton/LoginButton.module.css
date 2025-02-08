@@ -1,0 +1,12 @@
+.loginButton {
+    padding: 0.5em;
+    background: #dadfea;
+    border: 2px #9da6b8 solid;
+    border-radius: 0.2em;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.loginButton:hover {
+    background: #cfe0f8;
+}

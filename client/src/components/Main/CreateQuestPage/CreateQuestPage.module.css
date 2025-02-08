@@ -11,6 +11,18 @@
     align-items: center;
     justify-content: flex-start;
     padding: 2em;
-    width: 50vw;
+    width: 45vw;
     height: 80vh;
+}
+
+@media screen and (max-width: 40em) {
+    .createQuestPage {
+        flex-direction: column;
+    }
+
+    .infoContainer {
+        padding: 0;
+        width: 100%;
+        height: unset;
+    }
 }

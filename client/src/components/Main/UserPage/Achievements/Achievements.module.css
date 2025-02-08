@@ -1,17 +1,44 @@
 .achievements {
-    background: #dadfea;
-    width: 50vw;
+    width: 45vw;
     box-sizing: border-box;
-    padding: 1em;
+    border: 2px #9da6b8 solid;
+    box-shadow: 0.3em 0.3em 0 #dadfea;
+    margin: 2em 1em 1em;
+}
+
+.achievementsHeader {
+    background: #dadfea;
+    height: 1.5em;
+    width: 100%;
+    border-bottom: 2px #9da6b8 solid;
+    display: flex;
+    align-items: center;
+}
+
+.achievementsHeader div {
+    background: #ffffff;
+    padding: 5px;
+    border: 2px #9da6b8 solid;
+    margin: 0 0.5em;
+    border-radius: 50%;
 }
 
 .title {
+    text-align: left;
+    padding: 1em 2em 0;
     font-weight: 600;
-    text-align: center;
 }
 
 .list {
+    padding: 1em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+@media screen and (max-width: 40em) {
+    .achievements {
+        width: 90%;
+        margin-top: 0;
+    }
 }

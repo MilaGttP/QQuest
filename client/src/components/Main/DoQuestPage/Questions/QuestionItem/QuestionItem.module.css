@@ -1,0 +1,22 @@
+.item {
+    padding: 0.5em;
+    border: 2px #9da6b8 solid;
+    margin: 0.5em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.number {
+    font-weight: 600;
+    padding-right: 0.5em;
+}
+
+.title {
+    /*background: #fcd9df;*/
+}
+
+@media screen and (max-width: 40em) {
+    .item {
+        width: 95%;
+    }
+}

@@ -3,7 +3,7 @@
 }
 
 .info {
-    width: 50vw;
+    width: 45vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -61,4 +61,23 @@
 
 .saveButton:hover {
     background: #33FF66;
+}
+
+@media screen and (max-width: 40em) {
+    .questInfo {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .info {
+        width: 100%;
+        flex-direction: column;
+        padding-bottom: 1em;
+        align-items: flex-start;
+    }
+
+    .title {
+        text-align: center;
+        padding: 1em 0;
+    }
 }

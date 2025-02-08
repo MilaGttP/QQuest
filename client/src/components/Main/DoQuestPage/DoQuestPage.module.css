@@ -1,0 +1,11 @@
+.doQuestsPage {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 40em) {
+    .doQuestsPage {
+        flex-direction: column-reverse;
+    }
+}

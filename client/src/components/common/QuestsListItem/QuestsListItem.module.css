@@ -1,3 +1,8 @@
+a {
+    text-decoration: none;
+    color: #5a6170;
+}
+
 .item {
     /*height: 15em;*/
     width: 18em;

@@ -1,0 +1,41 @@
+.startQuest {
+    /*background: red;*/
+    width: 100%;
+    height: 70vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 1.2em;
+    padding-bottom: 1em;
+}
+
+.description {
+    padding: 1em 0;
+    text-align: center;
+}
+
+.startButton {
+    padding: 0.5em;
+    font-weight: 600;
+    border: 2px #9da6b8 solid;
+    background: #cfe0f8;
+    transition: 0.2s;
+    border-radius: 0.2em;
+}
+
+.startButton:hover {
+    background: #33FF66;
+    /*box-shadow: 0.3em 0.3em 0 #dadfea;*/
+}
+
+.rating span, .type span, .author span {
+    font-weight: 600;
+    padding-left: 0.5em;
+    color: #9da6b8;
+}

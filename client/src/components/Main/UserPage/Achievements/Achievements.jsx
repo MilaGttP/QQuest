@@ -12,6 +12,11 @@ const Achievements = () => {
 
     return (
         <div className={s.achievements}>
+            <div className={s.achievementsHeader}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
             <div className={s.title}>My achievements</div>
             <div className={s.list}>
                 {achievementsData.map(e => <AchievementsItem key={e} title={e}/>)}
