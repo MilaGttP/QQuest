@@ -1,12 +1,11 @@
 .item {
     width: 7.5em;
-    margin: 1em;
+    margin: 0.5em;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
     border: 2px #9da6b8 solid;
-
 }
 
 .item img {
