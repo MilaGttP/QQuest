@@ -1,22 +1,35 @@
 .item {
+    width: 7.5em;
     margin: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
+    border: 2px #9da6b8 solid;
+
 }
 
 .item img {
     height: 4.5em;
-    border-radius: 50%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+    padding: 0.2em;
+    box-sizing: border-box;
+    border-bottom: 2px #9da6b8 solid;
+    background: #dadfea;
 }
 
 .title {
     font-weight: 600;
     font-size: 0.9em;
+    padding: 0.2em;
 }
 
 .description {
     /*font-weight: 600;*/
     font-size: 0.8em;
+    padding: 0.2em;
+    text-align: center;
+
 }
