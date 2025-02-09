@@ -1,0 +1,17 @@
+.opened {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -4em;
+}
+
+.title {
+    font-weight: 600;
+    padding: 1em;
+}
+
+.opened input {
+    width: 40%;
+}

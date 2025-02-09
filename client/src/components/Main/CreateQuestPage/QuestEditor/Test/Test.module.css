@@ -1,0 +1,68 @@
+.test {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -2em;
+    overflow-y: auto;
+    max-height: 25em;
+}
+
+.title {
+    font-weight: 600;
+    padding: 1em;
+}
+
+.test button:hover {
+    background: #cfe0f8;
+}
+
+.option {
+    width: 70%;
+    margin: 0.3em;
+    padding: 0.5em;
+    border: 2px #9da6b8 solid;
+    border-radius: 0.2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.test button {
+    margin-top: 0.5em;
+}
+
+.mark, .activeMark {
+    border: 2px #9da6b8 solid;
+    border-radius: 0.2em;
+    width: 1.1em;
+    background: #dadfea;
+    margin-right: 0.5em;
+    transition: 0.2s;
+}
+
+.mark:hover, .activeMark {
+    background: #33FF66;
+}
+
+.delete {
+    font-weight: 600;
+    color: #9da6b8;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.delete:hover {
+    background: #cfe0f8;
+    color: #5a6170;
+}
+
+.test input {
+    border: none;
+    height: 0.3em;
+    outline: none;
+    font-size: 1em;
+    width: 75%;
+    color: #5a6170;
+    background: #cfe0f888;
+}

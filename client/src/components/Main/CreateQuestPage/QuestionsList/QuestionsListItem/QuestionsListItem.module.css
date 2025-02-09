@@ -6,10 +6,20 @@
     box-sizing: border-box;
     border-radius: 0.2em;
     transition: 0.2s;
+    display: flex;
+    justify-content: space-between;
 }
 
 .item:hover {
     box-shadow: 0.3em 0.3em 0 #dadfea;
+}
+
+.type {
+    background: #dadfea;
+}
+
+.item:hover .type {
+    background: #cfe0f8;
 }
 
 @media screen and (max-width: 40em) {

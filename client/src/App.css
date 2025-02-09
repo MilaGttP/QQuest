@@ -11,3 +11,16 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+input, button {
+  padding: 0.5em;
+  border-radius: 0.2em;
+  border: 2px #9da6b8 solid;
+}
+
+button {
+  background: #dadfea;
+  font-weight: 600;
+  color: #5a6170;
+  transition: 0.2s;
+}

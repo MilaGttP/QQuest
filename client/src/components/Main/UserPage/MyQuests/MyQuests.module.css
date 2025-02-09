@@ -21,14 +21,13 @@
     border-radius: 50%;
     width: 1.5em;
     height: 1.5em;
-    border: #5a6170 2px solid;
-    color: #5a6170;
-    background: #dadfea;
     position: fixed;
     bottom: 1em;
     right: 1em;
     transition: 0.2s;
     z-index: 10;
+    padding: unset;
+    font-weight: unset;
 }
 
 .newButton:hover {
