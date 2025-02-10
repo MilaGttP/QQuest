@@ -56,27 +56,15 @@
     color: #5a6170;
 }
 
-.saveButton {
-    font-weight: 600;
-    padding: 0.5em;
-    border-radius: 0.2em;
-    border: #5a6170 2px solid;
-    color: #5a6170;
-    background: #dadfea;
-    transition: 0.2s;
-}
-
 .saveButton:hover {
     background: #33FF66;
 }
 
 .imgInput  {
     width: unset;
-    /*background: red;*/
     padding: 0.3em;
     border: 2px #9da6b8 solid;
     border-radius: 0.2em;
-    /*color: transparent;*/
 }
 
 @media screen and (max-width: 40em) {

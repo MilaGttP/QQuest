@@ -1,12 +1,13 @@
 import {useEffect, useState} from "react";
 
-function useQuestForm(initialTitle) {
+function useQuestForm(initialTitle, initialQuestions = {}) {
     const [questInfo, setQuestInfo] = useState({
         title: initialTitle,
         type: "Type",
         time: 'Time',
         description: '',
         img: null,
+        questions: initialQuestions,
     });
 
     useEffect(() => {
@@ -23,7 +24,14 @@ function useQuestForm(initialTitle) {
     };
 
     const onSaveQuest = () => {
-        console.log("Saved Quest Info:", questInfo);
+        const areRightsAnswers = !questInfo.questions.filter(e => !e.rightAnswer).length;
+
+        if (areRightsAnswers) {
+            console.log("Saved Quest Info:", questInfo);
+        } else {
+            console.log("no right answers go fuck yourself");
+            alert("Add right answers to ALL questions before saving quest.");
+        }
     }
 
     return {questInfo, updateQuestInfo, handleFileChange, onSaveQuest};

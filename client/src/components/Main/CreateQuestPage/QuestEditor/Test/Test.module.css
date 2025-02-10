@@ -9,6 +9,15 @@
     max-height: 25em;
 }
 
+.test::-webkit-scrollbar {
+    width: 5px;
+}
+
+.test::-webkit-scrollbar-thumb {
+    background-color: #dadfea;
+    border-radius: 0.2em;
+}
+
 .title {
     font-weight: 600;
     padding: 1em;

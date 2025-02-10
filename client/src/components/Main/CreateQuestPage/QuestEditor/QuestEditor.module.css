@@ -56,18 +56,16 @@
     box-sizing: border-box;
 }
 
-.saveButton {
+.saveButton, .deleteButton {
     /*margin: 1em;*/
-    padding: 0.5em;
-    background: #dadfea;
-    border: 2px #9da6b8 solid;
-    border-radius: 0.2em;
-    font-weight: 600;
-    transition: 0.2s;
+}
+
+.deleteButton:hover {
+    background: #cfe0f8;
 }
 
 .saveButton:hover {
-    background: #cfe0f8;
+    background: #33FF66;
 }
 
 .buttonsContainer {

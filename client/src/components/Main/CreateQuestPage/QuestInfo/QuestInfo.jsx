@@ -1,16 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import s from "./QuestInfo.module.css";
-import useEditableTitle from "../../../hooks/useEditableTitle/useEditableTitle";
-import useQuestForm from "./useQuestForm";
 
 
-const QuestInfo = () => {
+const QuestInfo = (props) => {
 
     const minutes = ['5 min', '10 min', '15 min', '20 min', '25 min', '30 min'];
     const types = ["Entertainment", "Interactive Studying", "Team Building", "Memes", "Music", "Art", "Animals"];
 
-    const {title, isEditTitle, handleTitleChange, handleKeyDown, setIsEditTitle} = useEditableTitle();
-    const {questInfo, updateQuestInfo, handleFileChange, onSaveQuest} = useQuestForm(title);
+    const {title, isEditTitle, handleTitleChange, handleKeyDown, setIsEditTitle} = props.titleState;
+    const {questInfo, updateQuestInfo, handleFileChange, onSaveQuest} = props.questInfoState;
 
     return (
         <div className={s.questInfo}>

@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./Opened.module.css";
 
 
-const Opened = () => {
+const Opened = ({rightAnswer, onEditRightAnswer, ...props}) => {
+
     return (
         <div className={s.opened}>
             <div className={s.title}>Enter the right answer for your question: </div>
-            <input placeholder={"Your right answer..."} />
+            <input onChange={onEditRightAnswer} value={rightAnswer} placeholder={"Your right answer..."} />
         </div>
     )
 }

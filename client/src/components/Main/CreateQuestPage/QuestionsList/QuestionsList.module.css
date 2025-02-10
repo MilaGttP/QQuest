@@ -27,18 +27,8 @@
     padding-top: 0.5em;
 }
 
-.newButton {
-    font-weight: 600;
-    padding: 0.5em;
-    border-radius: 0.2em;
-    border: #5a6170 2px solid;
-    color: #5a6170;
-    background: #dadfea;
-    transition: 0.2s;
-}
-
 .newButton:hover {
-    background: #33FF66;
+    background: #cfe0f8;
 }
 
 @media screen and (max-width: 40em) {

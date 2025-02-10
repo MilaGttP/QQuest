@@ -11,7 +11,9 @@ const QuestionsListItem = (props) => {
     return (
         <div className={s.item} onClick={onItemClick}>
             <span>{props.number}. {props.questionData.text}</span>
-            <span className={s.type}>{props.questionData.type}</span>
+            <span className={props.questionData.rightAnswer ? s.typeCompleted : s.type}>
+                {props.questionData.type}
+            </span>
         </div>
     )
 }

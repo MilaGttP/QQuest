@@ -18,6 +18,10 @@
     background: #dadfea;
 }
 
+.typeCompleted {
+    background: #33FF66;
+}
+
 .item:hover .type {
     background: #cfe0f8;
 }

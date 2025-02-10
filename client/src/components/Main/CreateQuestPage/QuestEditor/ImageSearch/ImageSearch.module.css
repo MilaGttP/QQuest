@@ -8,6 +8,15 @@
     max-height: 25em;
 }
 
+.imageSearch::-webkit-scrollbar {
+    width: 5px;
+}
+
+.imageSearch::-webkit-scrollbar-thumb {
+    background-color: #dadfea;
+    border-radius: 0.2em;
+}
+
 .title {
     font-weight: 600;
 }

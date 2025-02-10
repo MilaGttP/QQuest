@@ -3,15 +3,25 @@ import s from "./CreateQuestPage.module.css";
 import QuestInfo from "./QuestInfo/QuestInfo";
 import QuestionsList from "./QuestionsList/QuestionsList";
 import QuestEditor from "./QuestEditor/QuestEditor";
+import useQuestForm from "./QuestInfo/useQuestForm";
+import useEditableTitle from "../../hooks/useEditableTitle/useEditableTitle";
 
 
 const CreateQuestPage = () => {
 
+    const {title, isEditTitle, handleTitleChange, handleKeyDown, setIsEditTitle} = useEditableTitle();
+    const titleState =  {title, isEditTitle, handleTitleChange, handleKeyDown, setIsEditTitle};
+
     const [questionsData, setQuestionsData] = useState([
-        {id: 1, type: "Test", text: "how much will be 2+2?"},
-        {id: 2, type: "Opened", text: "how much money do you have?"},
-        {id: 3, type: "Image search", text: "where is the orange cat?"},
+        {id: 1, type: "Test", text: "How much will be 2+2?"},
+        {id: 2, type: "Opened", text: "How much money do you have?"},
+        {id: 3, type: "Image search", text: "Where is the orange cat?"},
     ]);
+
+    const {questInfo, updateQuestInfo, handleFileChange, onSaveQuest} = useQuestForm(title, questionsData);
+    const questInfoState = {questInfo, updateQuestInfo, handleFileChange, onSaveQuest};
+
+    console.log(questionsData);
 
     const [currentQuestion, setCurrentQuestion] = useState(questionsData[0]);
 
@@ -27,13 +37,16 @@ const CreateQuestPage = () => {
     }
 
     useEffect(() => {
-
+        updateQuestInfo("questions", questionsData);
     }, [questionsData]);
 
     return (
         <div className={s.createQuestPage}>
             <div className={s.infoContainer}>
-                <QuestInfo/>
+                <QuestInfo
+                    titleState={titleState}
+                    questInfoState={questInfoState}
+                />
                 <QuestionsList
                     setCurrentQuestion={setCurrentQuestion}
                     questionsData={questionsData}
