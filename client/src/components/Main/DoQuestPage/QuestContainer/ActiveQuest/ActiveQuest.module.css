@@ -1,0 +1,21 @@
+.activeQuest {
+
+}
+
+.questHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.info {
+    text-align: right;
+}
+
+.questionsLeft {
+    font-weight: 600;
+    padding-left: 0.5em;
+}

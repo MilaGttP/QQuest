@@ -21,7 +21,7 @@ const CreateQuestPage = () => {
     const {questInfo, updateQuestInfo, handleFileChange, onSaveQuest} = useQuestForm(title, questionsData);
     const questInfoState = {questInfo, updateQuestInfo, handleFileChange, onSaveQuest};
 
-    console.log(questionsData);
+    // console.log(questionsData);
 
     const [currentQuestion, setCurrentQuestion] = useState(questionsData[0]);
 

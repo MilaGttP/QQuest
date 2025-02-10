@@ -2,15 +2,22 @@ import React from "react";
 import s from "./StartQuest.module.css";
 
 
-const StartQuest = () => {
+const StartQuest = ({questData, ...props}) => {
+
+    const handleStart = () => {
+        props.updateQuestData("status", "active");
+    }
+
     return (
         <div className={s.startQuest}>
-            <div className={s.title}>Quest title</div>
-            <div className={s.rating}>Rating: <span>10/10</span></div>
-            <div className={s.type}>Type: <span>Memes</span></div>
-            <div className={s.author}>Author: <span>Lizun</span></div>
-            <div className={s.description}>Quest description very very very long it is a very cool quest youll like it.</div>
-            <button className={s.startButton}>Start Quest</button>
+            <div className={s.title}>{questData.title}</div>
+            <div className={s.rating}>Rating: <span>{questData.rating}/10</span></div>
+            <div className={s.type}>Type: <span>{questData.type}</span></div>
+            <div className={s.author}>Author: <span>{questData.author}</span></div>
+            <div className={s.time}>Time: <span>{questData.time}</span></div>
+            <div className={s.description}>{questData.description}</div>
+
+            <button className={s.startButton} onClick={handleStart}>Start Quest</button>
         </div>
     )
 }
