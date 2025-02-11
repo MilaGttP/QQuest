@@ -24,7 +24,7 @@
     width: 45vw;
     display: flex;
     justify-content: flex-end;
-    padding-top: 0.5em;
+    margin-top: -0.5em;
 }
 
 .newButton:hover {
@@ -48,5 +48,7 @@
         width: 100%;
         margin: 0;
         padding-top: 0.5em;
+        display: flex;
+        justify-content: flex-start;
     }
 }
