@@ -9,7 +9,14 @@ const Questions = ({questions, ...props}) => {
         <div className={s.questions}>
             <div className={s.questTitle}><span>{props.title}</span></div>
             <div className={s.title}>Questions: {questions.length}</div>
-            {questions.map(e => <QuestionItem key={e.id} question={e} number={questions.indexOf(e)+1}/>)}
+            {questions.map(e => <QuestionItem
+                key={e.id}
+                question={e}
+                number={questions.indexOf(e)+1}
+                currentQuestionIndex={props.currentQuestionIndex}
+                isQuestActive={props.isQuestActive}
+                isQuestFinished={props.isQuestFinished}
+            />)}
         </div>
     )
 }

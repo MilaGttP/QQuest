@@ -1,10 +1,11 @@
 import {useEffect, useState} from "react";
+import {nanoid} from "nanoid";
 
 function useQuestForm(initialTitle, initialQuestions = {}) {
     const [questInfo, setQuestInfo] = useState({
         title: initialTitle,
-        type: "Type",
-        time: 'Time',
+        type: "",
+        time: '',
         description: '',
         img: null,
         questions: initialQuestions,
@@ -25,12 +26,13 @@ function useQuestForm(initialTitle, initialQuestions = {}) {
 
     const onSaveQuest = () => {
         const areRightsAnswers = !questInfo.questions.filter(e => !e.rightAnswer).length;
+        const isQuestInfo = questInfo.title && questInfo.description && questInfo.time && questInfo.questions && questInfo.type;
 
-        if (areRightsAnswers) {
-            console.log("Saved Quest Info:", questInfo);
+        if (areRightsAnswers && isQuestInfo) {
+            console.log("Saved Quest Info:", {nanoId: nanoid(6), ...questInfo});
         } else {
-            console.log("no right answers go fuck yourself");
-            alert("Add right answers to ALL questions before saving quest.");
+            console.log("no right answers or not all info");
+            alert("Add right answers to ALL questions and fill ALL fields before saving quest.");
         }
     }
 

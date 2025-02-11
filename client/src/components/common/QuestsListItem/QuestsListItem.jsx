@@ -4,20 +4,20 @@ import cat from "../../../img/cat.png";
 import {Link} from "react-router-dom";
 
 
-const QuestsListItem = (props) => {
+const QuestsListItem = ({questData, ...props}) => {
     return (
         <Link to={"/quest"}>
             <div className={s.item}>
                 <img src={cat}/>
                 <div className={s.info}>
-                    <div className={s.title}><span>{props.title}</span></div>
-                    <div className={s.questions}>20 questions</div>
+                    <div className={s.title}><span>{questData.title}</span></div>
+                    <div className={s.questions}>{questData.questions.length} questions</div>
                     <div className={s.additional}>
-                        <span>10/10</span>
-                        <span>with cats</span>
-                        <span>#8sd89jf86</span>
+                        <span>{questData.rating}/10</span>
+                        <span>{questData.type}</span>
+                        <span>{questData.id}</span>
                     </div>
-                    <div className={s.description}>This is a very cool quest with cats</div>
+                    <div className={s.description}>{questData.description}</div>
                 </div>
             </div>
         </Link>

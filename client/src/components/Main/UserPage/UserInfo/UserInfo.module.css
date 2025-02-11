@@ -39,9 +39,34 @@
     padding-bottom: 0.5em;
 }
 
+.status .text {
+    margin-right: 1em;
+}
+
+.status input {
+    font-weight: 600;
+    color: #9da6b8;
+    margin-right: 1em;
+
+}
+
 .score span, .quests span {
     color: #9da6b8;
     font-weight: 600;
+}
+
+.save {
+    padding: 0.2em;
+}
+
+.save:hover {
+    background: #cfe0f8;
+}
+
+.edit {
+    padding: 0;
+    border: none;
+    background: transparent;
 }
 
 @media screen and (max-width: 40em) {

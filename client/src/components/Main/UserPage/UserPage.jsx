@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import s from "./UserPage.module.css";
 import Achievements from "./Achievements/Achievements";
 import MyQuests from "./MyQuests/MyQuests";
@@ -7,18 +7,25 @@ import CompletedQuests from "./CompletedQuests/CompletedQuests";
 import {useAuth0} from "@auth0/auth0-react";
 
 
-const UserPage = () => {
+const UserPage = (props) => {
 
     const {user, isAuthenticated, isLoading} = useAuth0();
+    const [userApiData, setUserApiData] = useState();
+
+    useEffect(() => {
+        // getUserInfo(props.user.nickname)
+        //     .then(res => setUserApiData(res.data))
+        //     .catch(err => console.log(err.message));
+    }, []);
 
     return (
         <div className={s.userPage}>
             <div className={s.userContainer}>
-                <UserInfo user={user}/>
-                <Achievements/>
+                <UserInfo user={user} userApiData={userApiData}/>
+                <Achievements achievements={userApiData?.achievements}/>
             </div>
-            <MyQuests/>
-            <CompletedQuests/>
+            <MyQuests defaultQuestsData={props.defaultQuestsData}/>
+            <CompletedQuests defaultQuestsData={props.defaultQuestsData}/>
         </div>
     )
 }

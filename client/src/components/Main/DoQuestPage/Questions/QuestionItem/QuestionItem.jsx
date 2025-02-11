@@ -3,10 +3,26 @@ import s from "./QuestionItem.module.css";
 
 
 const QuestionItem = ({question, ...props}) => {
+
+    const isCompleted = props.currentQuestionIndex > props.number - 1;
+    const isCurrent = props.currentQuestionIndex === props.number - 1 && props.isQuestActive;
+
+    const isRight = question?.selectedAnswer?.toString() === question?.rightAnswer?.toString();
+
+    console.log(question);
+
     return (
         <div className={s.item}>
-            <span className={s.number}>{props.number}.</span>
-            <span className={s.title}>{question.text}</span>
+            <div>
+                <span className={s.number}>{props.number}.</span>
+                <span className={s.title}>
+                    {props.isQuestFinished || isCompleted || isCurrent ? question.text : "Question"}
+                </span>
+            </div>
+            {props.isQuestFinished
+                ? <div className={isRight ? s.completedGreen : s.completed}>{isRight ? "Right answer!" : "Wrong answer..."}</div>
+                : (isCompleted || props.isQuestFinished) && <div className={s.completed}>Completed!</div>
+            }
         </div>
     )
 }

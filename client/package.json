@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",
+    "axios": "^1.7.9",
     "cra-template": "1.2.0",
+    "nanoid": "^5.0.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
+    "uuid": "^11.0.5",
     "web-vitals": "^4.2.4"
   },
   "scripts": {

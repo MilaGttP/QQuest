@@ -7,12 +7,22 @@ import useDoQuest from "./useDoQuest";
 
 const DoQuestPage = () => {
 
-   const {questData, updateQuestData} = useDoQuest();
+   const {questData, updateQuestData, setSelectedAnswer} = useDoQuest();
 
     return (
         <div className={s.doQuestsPage}>
-            <Questions title={questData.title} questions={questData.questions}/>
-            <QuestContainer updateQuestData={updateQuestData} questData={questData}/>
+            <Questions
+                title={questData.title}
+                questions={questData.questions}
+                currentQuestionIndex={questData.currentQuestionIndex}
+                isQuestActive={questData.status === "active"}
+                isQuestFinished={questData.status === "finished"}
+            />
+            <QuestContainer
+                setSelectedAnswer={setSelectedAnswer}
+                updateQuestData={updateQuestData}
+                questData={questData}
+            />
         </div>
     )
 }

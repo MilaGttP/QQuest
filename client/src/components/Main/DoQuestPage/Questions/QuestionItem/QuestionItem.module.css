@@ -4,6 +4,8 @@
     margin: 0.5em;
     width: 100%;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
 }
 
 .number {
@@ -13,6 +15,16 @@
 
 .title {
     /*background: #fcd9df;*/
+}
+
+.completed, .completedGreen {
+    font-weight: 600;
+    color: #9da6b8;
+}
+
+.completedGreen {
+    color: #5a6170;
+    background: #33FF66;
 }
 
 @media screen and (max-width: 40em) {

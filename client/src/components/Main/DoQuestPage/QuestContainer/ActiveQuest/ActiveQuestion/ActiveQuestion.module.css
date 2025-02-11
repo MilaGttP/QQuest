@@ -1,0 +1,91 @@
+.activeQuestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 65vh;
+    padding-top: 2em;
+    box-sizing: border-box;
+}
+
+.title {
+    font-weight: 600;
+}
+
+.answers {
+    display: flex;
+    gap: 1.5em;
+    padding: 1em 0;
+    flex-wrap: wrap;
+}
+
+.answer {
+    padding: 0.5em;
+    border: 2px #9da6b8 solid;
+    border-radius: 0.2em;
+    width: 12em;
+    height: 11em;
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+.answer:hover {
+    box-shadow: 0.3em 0.3em 0 #dadfea;
+}
+
+.answer input {
+    border-radius: 0;
+    padding: 0.5em;
+
+}
+
+.checkbox, .selectedCheckbox {
+    padding-right: 1.35em;
+    margin-right: 1em;
+    border: 2px #9da6b8 solid;
+    border-radius: 0.2em;
+    background: #dadfea;
+}
+
+.openedAnswer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -4em;
+}
+
+.openedTitle {
+    padding-bottom: 1em;
+}
+
+.openedAnswer input {
+    width: 25em;
+    outline: none;
+    font-weight: 600;
+    color: #5a6170;
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nextButton:hover, .checkbox:hover, .selectedCheckbox {
+    background: #33FF66;
+}
+
+@media screen and (max-width: 40em) {
+    .answers {
+        flex-wrap: nowrap;
+        flex-direction: column;
+        gap: 0.5em;
+        overflow-y: auto;
+    }
+
+    .answer {
+        height: unset;
+        width: 100%;
+    }
+}

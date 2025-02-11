@@ -3,17 +3,12 @@ import s from "./CompletedQuests.module.css";
 import QuestsListItem from "../../../common/QuestsListItem/QuestsListItem";
 
 
-const completedQuests = () => {
-
-    const questsData = [
-        "one hehe", "two hehe", "three hehe",
-    ]
-
+const completedQuests = (props) => {
     return (
         <div className={s.completedQuests}>
             <div className={s.title}>Completed quests</div>
             <div className={s.questsList}>
-                {questsData.map(e => <QuestsListItem key={e} title={e}/>)}
+                {props.defaultQuestsData.map(e => <QuestsListItem key={e.id} questData={e}/>)}
             </div>
         </div>
     )

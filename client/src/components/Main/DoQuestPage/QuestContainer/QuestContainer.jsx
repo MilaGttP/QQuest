@@ -18,7 +18,11 @@ const QuestContainer = (props) => {
                     <StartQuest updateQuestData={props.updateQuestData} questData={props.questData}/>
                 }
                 {props.questData.status === "active" &&
-                    <ActiveQuest updateQuestData={props.updateQuestData} questData={props.questData}/>
+                    <ActiveQuest
+                        updateQuestData={props.updateQuestData}
+                        questData={props.questData}
+                        setSelectedAnswer={props.setSelectedAnswer}
+                    />
                 }
                 {props.questData.status === "finished" && <FinishedQuest questData={props.questData}/>}
             </div>

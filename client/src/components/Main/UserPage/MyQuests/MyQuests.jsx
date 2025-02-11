@@ -4,13 +4,9 @@ import QuestsListItem from "../../../common/QuestsListItem/QuestsListItem";
 import {useNavigate} from "react-router-dom";
 
 
-const MyQuests = () => {
+const MyQuests = (props) => {
 
     const navigate = useNavigate();
-
-    const questsData = [
-        "quest one", "find the orange cat", "find a new job", "do maths homework", "quest two",
-    ];
 
     const onNewButton = () => {
         navigate("/create");
@@ -20,7 +16,7 @@ const MyQuests = () => {
         <div className={s.myQuests}>
             <div className={s.title}>My quests</div>
             <div className={s.questsList}>
-                {questsData.map(e => <QuestsListItem key={e} title={e}/>)}
+                {props.defaultQuestsData.map(e => <QuestsListItem key={e.id} questData={e}/>)}
             </div>
             <button onClick={onNewButton} className={s.newButton}>+</button>
         </div>
