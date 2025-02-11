@@ -37,6 +37,9 @@ namespace qquest_backend.Models
 
         public DateTime Expiring { get; set; }
 
+        [StringLength(128)]
+        public string? Photo { get; set; }
+
         [Required]
         public int AuthorId { get; set; }
 
