@@ -1,0 +1,20 @@
+.comment {
+    padding: 0.5em 1em;
+    /*border: 2px #dadfea solid;*/
+    margin: 1em 0;
+}
+
+.author {
+    font-weight: 600;
+}
+
+.deleteButton {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #9da6b8;
+}
+
+.deleteButton:hover {
+    color: #5a6170;
+}

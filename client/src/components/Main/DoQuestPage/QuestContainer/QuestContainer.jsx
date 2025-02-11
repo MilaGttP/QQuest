@@ -24,7 +24,12 @@ const QuestContainer = (props) => {
                         setSelectedAnswer={props.setSelectedAnswer}
                     />
                 }
-                {props.questData.status === "finished" && <FinishedQuest questData={props.questData}/>}
+                {props.questData.status === "finished" &&
+                    <FinishedQuest
+                        questData={props.questData}
+                        updateQuestData={props.updateQuestData}
+                    />
+                }
             </div>
         </div>
     )

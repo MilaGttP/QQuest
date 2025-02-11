@@ -6,6 +6,7 @@ const StartQuest = ({questData, ...props}) => {
 
     const handleStart = () => {
         props.updateQuestData("status", "active");
+        props.updateQuestData("currentQuestionIndex", 0);
     }
 
     return (

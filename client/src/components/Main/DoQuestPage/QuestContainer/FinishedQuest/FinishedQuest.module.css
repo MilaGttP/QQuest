@@ -1,0 +1,65 @@
+.finished {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 65vh;
+    justify-content: center;
+}
+
+.title {
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.5em;
+    color: #9da6b8;
+    padding: 1em;
+}
+
+.restartButton {
+    margin-top: 2em;
+}
+
+.restartButton:hover {
+    background: #33FF66;
+}
+
+.score {
+    /*font-weight: 600;*/
+    /*color: #9da6b8;*/
+    /*margin: 0.5em;*/
+}
+
+.answers {
+    margin: 0.5em;
+    font-weight: 600;
+    background: #dadfea;
+    font-size: 1.1em;
+    color: #5a6170;
+}
+
+.rates {
+    padding: 1em;
+    text-align: center;
+}
+
+.ratesTitle {
+    padding: 1.5em;
+    /*font-weight: 600;*/
+}
+
+.rate, .selectedRate {
+    padding: 0 0.5em;
+    color: #9da6b8;
+    font-weight: 600;
+    font-size: 1.1em;
+    border: 2px transparent solid;
+    border-radius: 0.2em;
+    margin: 0.2em;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.rate:hover, .selectedRate {
+    background: #cfe0f8;
+    border-color: #9da6b8;
+    color: #5a6170;
+}

@@ -10,6 +10,7 @@ function useDoQuest() {
         type: "Entertainment",
         img: {},
         rating: 9,
+        rate: null,
         author: "Lizunnn",
         time: "5 min",
         questions: [
@@ -33,6 +34,10 @@ function useDoQuest() {
                 rightAnswer: "6",
             },
         ],
+        comments: [
+            {id: 1, author: "lizun", text: "i hate my life"},
+            {id: 2, author: "some_guy", text: "i hate vntu"},
+        ]
     });
 
     const updateQuestData = (field, value) => {
@@ -48,7 +53,21 @@ function useDoQuest() {
         }));
     };
 
-    return {questData, updateQuestData, setSelectedAnswer};
+    const addComment = (author, text) => {
+        setQuestData(prev => ({
+            ...prev,
+            comments: [...prev.comments, { id: Date.now(), author, text }],
+        }));
+    };
+
+    const deleteComment = (commentId) => {
+        setQuestData(prev => ({
+            ...prev,
+            comments: prev.comments.filter(comment => comment.id !== commentId),
+        }));
+    };
+
+    return {questData, updateQuestData, setSelectedAnswer, addComment, deleteComment};
 }
 
 export default useDoQuest;

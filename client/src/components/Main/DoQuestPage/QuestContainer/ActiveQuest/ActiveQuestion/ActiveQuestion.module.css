@@ -17,6 +17,8 @@
     gap: 1.5em;
     padding: 1em 0;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 
 .answer {

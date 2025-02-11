@@ -26,12 +26,12 @@ const ActiveQuestion = ({question, setSelectedAnswer, ...props}) => {
 
     const handleOpenedAnswerChange = (event) => {
         setOpenedAnswer(event.target.value);
-        setSelectedAnswer(props.currentQuestionIndex, openedAnswer);
+        setSelectedAnswer(props.currentQuestionIndex, event.target.value.toString());
     }
 
     return (
         <div className={s.activeQuestion}>
-            <div className={s.title}>{question.text} {question.type}</div>
+            <div className={s.title}>{question.text}</div>
             {question.type === "Test" && question.answers.length &&
                 <div className={s.answers}>
                     {question.answers.map(e =>
