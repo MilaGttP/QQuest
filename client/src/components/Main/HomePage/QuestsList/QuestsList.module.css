@@ -3,8 +3,13 @@
     flex-wrap: wrap;
     margin: 2em 0;
     justify-content: center;
+    min-height: 60vh;
     max-height: 90vh;
     overflow-y: auto;
+}
+
+.noQuests {
+    min-height: 60vh;
 }
 
 .questsList::-webkit-scrollbar {

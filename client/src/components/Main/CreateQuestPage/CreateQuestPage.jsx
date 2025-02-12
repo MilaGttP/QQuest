@@ -15,7 +15,7 @@ const CreateQuestPage = () => {
     const [questionsData, setQuestionsData] = useState([
         {id: 1, type: "Test", text: "How much will be 2+2?"},
         {id: 2, type: "Opened", text: "How much money do you have?"},
-        {id: 3, type: "Image search", text: "Where is the orange cat?"},
+        {id: 3, type: "ImageSearch", text: "Where is the orange cat?"},
     ]);
 
     const {questInfo, updateQuestInfo, handleFileChange, onSaveQuest} = useQuestForm(title, questionsData);

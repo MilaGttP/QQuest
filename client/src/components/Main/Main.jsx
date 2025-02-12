@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import s from "./Main.module.css";
 import HomePage from "./HomePage/HomePage";
 import {Route, Routes} from "react-router-dom";
@@ -6,11 +6,21 @@ import UserPage from "./UserPage/UserPage";
 import CreateQuestPage from "./CreateQuestPage/CreateQuestPage";
 import DoQuestPage from "./DoQuestPage/DoQuestPage";
 import {useAuth0} from "@auth0/auth0-react";
+import {fetchSomething} from "../../api";
+import { AdvancedImage } from "@cloudinary/react";
+import { Cloudinary } from "@cloudinary/url-gen";
+import { fill } from "@cloudinary/url-gen/actions/resize";
 
 
 const Main = () => {
 
-    const {isAuthenticated} = useAuth0();
+    const cld = new Cloudinary({
+        cloud: {
+            cloudName: "твій_cloud_name", // Замініть на своє ім'я хмари
+        },
+    });
+
+    const {user, isAuthenticated} = useAuth0();
 
     const [questsData, setQuestsData] = useState(null);
 
@@ -109,6 +119,12 @@ const Main = () => {
             ],
         },
     ];
+
+    useEffect(() => {
+        fetchSomething("user@example.com")
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    }, []);
 
     return (
         <div className={s.main}>

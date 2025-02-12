@@ -1,12 +1,48 @@
-import {useState} from "react";
+import { useState } from "react";
+import {nanoid} from "nanoid";
 
-function useImageOptions(initialOptions = [{id: 1, image: {}, isRight: false}]) {
+function useImageOptions(initialOptions = [{ id: 1, imgUrl: "", isRight: false }]) {
     const [imageOptions, setImageOptions] = useState(initialOptions);
+
+    const uploadImageToCloudinary = async (file) => {
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "ml_default");
+        formData.append("cloud_name", "qquest");
+
+        try {
+            const response = await fetch("https://api.cloudinary.com/v1_1/qquest/image/upload", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json();
+            return data.secure_url; // URL завантаженого зображення
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            return null;
+        }
+    };
+
+    const onEditImgOption = async (id, file) => {
+        if (!file) return;
+
+        const uploadedImage = await uploadImageToCloudinary(file);
+        if (!uploadedImage) return;
+
+        setImageOptions((prevOptions) =>
+            prevOptions.map(option =>
+                option.id === id ? { ...option, imgUrl: uploadedImage } : option
+            )
+        );
+    };
+
 
     const onImgAddOption = () => {
         setImageOptions(prevOptions => [
             ...prevOptions,
-            { id: prevOptions.length + 1, image: {}, isRight: false }
+            { id: nanoid(4), imgUrl: "", isRight: false }
         ]);
     };
 
@@ -24,15 +60,7 @@ function useImageOptions(initialOptions = [{id: 1, image: {}, isRight: false}]) 
         );
     };
 
-    const onEditImgOption = (id, newImg) => {
-        setImageOptions(prevOptions =>
-            prevOptions.map(option =>
-                option.id === id ? { ...option, img: newImg } : option
-            )
-        );
-    };
-
-    return {imageOptions, setImageOptions, onImgAddOption, onDeleteImgOption, onMarkRightImg, onEditImgOption};
+    return { imageOptions, setImageOptions, onImgAddOption, onDeleteImgOption, onMarkRightImg, onEditImgOption };
 }
 
 export default useImageOptions;

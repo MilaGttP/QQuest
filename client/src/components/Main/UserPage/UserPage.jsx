@@ -5,12 +5,13 @@ import MyQuests from "./MyQuests/MyQuests";
 import UserInfo from "./UserInfo/UserInfo";
 import CompletedQuests from "./CompletedQuests/CompletedQuests";
 import {useAuth0} from "@auth0/auth0-react";
+import {useApiUser} from "../../../context/apiUserContext";
 
 
 const UserPage = (props) => {
 
     const {user, isAuthenticated, isLoading} = useAuth0();
-    const [userApiData, setUserApiData] = useState();
+    const { userApiData, updateUserApiData } = useApiUser();
 
     useEffect(() => {
         // getUserInfo(props.user.nickname)
@@ -21,7 +22,11 @@ const UserPage = (props) => {
     return (
         <div className={s.userPage}>
             <div className={s.userContainer}>
-                <UserInfo user={user} userApiData={userApiData}/>
+                <UserInfo
+                    user={user}
+                    userApiData={userApiData}
+                    updateUserApiData={updateUserApiData}
+                />
                 <Achievements achievements={userApiData?.achievements}/>
             </div>
             <MyQuests defaultQuestsData={props.defaultQuestsData}/>

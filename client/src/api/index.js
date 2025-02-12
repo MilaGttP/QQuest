@@ -11,6 +11,17 @@ const fetchData = async () => {
     }
 };
 
+export const fetchSomething = async (email) => {
+    try {
+        const response = await axiosInstance.post("/Account/Login", {email: email});
+
+        console.log(response.data);
+
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
 export const setUserInfo = async (userInfo) => {
     try {
         const response = await axiosInstance().post("/userInfo", userInfo);

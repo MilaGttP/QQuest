@@ -19,9 +19,34 @@ function useQuestForm(initialTitle, initialQuestions = {}) {
         setQuestInfo(prev => ({ ...prev, [field]: value }));
     };
 
-    const handleFileChange = (event) => {
+    const uploadImageToCloudinary = async (file) => {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("upload_preset", "ml_default"); // Замініть на ваш upload preset
+
+        try {
+            const response = await fetch("https://api.cloudinary.com/v1_1/qquest/image/upload", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+            return data.secure_url; // URL завантаженого зображення
+        } catch (error) {
+            console.error("Помилка завантаження зображення:", error);
+            return null;
+        }
+    };
+
+    const handleFileChange = async (event) => {
         const file = event.target.files[0];
-        updateQuestInfo("img", file);
+        if (!file) return;
+
+        const uploadedImageUrl = await uploadImageToCloudinary(file);
+        console.log(uploadedImageUrl);
+        if (uploadedImageUrl) {
+            updateQuestInfo("img", uploadedImageUrl);
+        }
     };
 
     const onSaveQuest = () => {

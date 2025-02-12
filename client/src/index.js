@@ -5,10 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import {Auth0Provider} from "@auth0/auth0-react";
+import {ApiUserProvider} from "./context/apiUserContext";
 
-
-const domain = "dev-yrahk217y7qkc7m1.us.auth0.com";
-const clientId = "ivlNt0eY3qIFY7kfqDOfDIbfuYvZnrzA";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -25,9 +23,11 @@ root.render(
             useRefreshTokens={true}
             useCookiesForTransactions={true}
         >
-            <BrowserRouter>
-                <App/>
-            </BrowserRouter>
+            <ApiUserProvider>
+                <BrowserRouter>
+                    <App/>
+                </BrowserRouter>
+            </ApiUserProvider>
         </Auth0Provider>
     </React.StrictMode>
 );

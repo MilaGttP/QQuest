@@ -31,6 +31,29 @@
     box-sizing: border-box;
 }
 
+.imageSearch {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.imgAnswer {
+    height: 10em;
+    border: 2px #9da6b8 solid;
+    padding: 0.5em;
+    display: flex;
+    align-items: flex-start;
+    margin: 0.5em;
+}
+
+.imgAnswer img {
+    /*width: 100%;*/
+    height: 100%;
+}
+
 .answer:hover {
     box-shadow: 0.3em 0.3em 0 #dadfea;
 }
@@ -42,6 +65,7 @@
 }
 
 .checkbox, .selectedCheckbox {
+    height: 1.3em;
     padding-right: 1.35em;
     margin-right: 1em;
     border: 2px #9da6b8 solid;

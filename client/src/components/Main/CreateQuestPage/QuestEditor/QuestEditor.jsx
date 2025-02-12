@@ -22,7 +22,7 @@ const QuestEditor = (props) => {
         onDeleteQuestion,
     } = useQuestionEditor(props);
 
-    const types = ["Test", "Opened", "Image search"];
+    const types = ["Test", "Opened", "ImageSearch"];
 
     return (
         <div className={s.editor}>

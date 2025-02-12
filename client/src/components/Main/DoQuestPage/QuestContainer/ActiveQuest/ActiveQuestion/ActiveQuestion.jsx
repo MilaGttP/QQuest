@@ -55,6 +55,19 @@ const ActiveQuestion = ({question, setSelectedAnswer, ...props}) => {
                     />
                 </div>
             }
+            {question.type === "ImageSearch" &&
+                <div className={s.imageSearch}>
+                    {question.answers.map(e =>
+                        <div className={s.imgAnswer}>
+                            <span
+                                className={selectedAnswer === e.imgUrl ? s.selectedCheckbox : s.checkbox}
+                                onClick={() => handleSelectAnswer(e.imgUrl)}
+                            ></span>
+                            <img src={e.imgUrl}/>
+                        </div>
+                    )}
+                </div>
+            }
             <div className={s.buttonContainer}>
                 <button onClick={handleNext} className={s.nextButton}>Next</button>
             </div>

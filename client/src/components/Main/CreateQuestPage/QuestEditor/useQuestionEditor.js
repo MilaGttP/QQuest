@@ -45,9 +45,10 @@ function useQuestionEditor(props) {
                 answers = [];
                 right = rightAnswer;
                 break;
-            case "Image search":
+            case "ImageSearch":
                 answers = imageOptions;
-                right = answers.find(e => e.isRight)?.text || "";
+                right = answers.find(e => e.isRight).imgUrl || "";
+                // console.log(answers, right);
                 break;
             default:
                 return;

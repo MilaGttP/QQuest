@@ -7,7 +7,10 @@ const EditorType = (props) => {
     switch (props.type) {
         case "Test": return <Test options={props.options} operations={props.optionsOperations}/>;
         case "Opened": return <Opened rightAnswer={props.rightAnswer} onEditRightAnswer={props.onEditRightAsnwer}/>;
-        case "Image search": return <ImageSearch options={props.imageOptions} operations={props.imageOperations}/>;
+        case "ImageSearch": return <ImageSearch
+            options={props.imageOptions}
+            operations={props.imageOperations}
+        />;
     }
 }
 

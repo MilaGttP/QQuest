@@ -33,6 +33,16 @@ function useDoQuest() {
                 answers: [],
                 rightAnswer: "6",
             },
+            {
+                id: 3,
+                type: 'ImageSearch',
+                text: 'Find the cat',
+                answers: [
+                    {id: 1, imgUrl: "https://res.cloudinary.com/qquest/image/upload/v1739043429/cld-sample-4.jpg"},
+                    {id: 2, imgUrl: "https://res.cloudinary.com/qquest/image/upload/v1739043429/cld-sample-5.jpg"},
+                ],
+                rightAnswer: "https://res.cloudinary.com/qquest/image/upload/v1739043429/cld-sample-5.jpg",
+            },
         ],
         comments: [
             {id: 1, author: "lizun", text: "i hate my life"},

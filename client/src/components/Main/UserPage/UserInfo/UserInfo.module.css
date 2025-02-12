@@ -69,6 +69,14 @@
     background: transparent;
 }
 
+.adminButton {
+    margin-top: 1em;
+}
+
+.adminButton:hover {
+    background: #33FF66;
+}
+
 @media screen and (max-width: 40em) {
     .userInfo {
         width: 100%;

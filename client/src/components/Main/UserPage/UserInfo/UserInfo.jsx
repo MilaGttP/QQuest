@@ -13,14 +13,23 @@ const UserInfo = (props) => {
         // setUserInfo({status: status}).catch(err => console.log(err.message));
     }
 
+    const handleBecomeAdmin = () => {
+        alert("Sure we believe that you are admin!");
+        props.updateUserApiData("isAdmin", true);
+    }
+
     return (
         <div className={s.userInfo}>
             <div className={s.avatar}>
                 <img src={props?.user?.picture || cat}/>
-                <div className={s.rating}>Rating: #1</div>
+                <div className={s.rating}>
+                    {props.userApiData.isAdmin && <div>Admin</div>}
+                    Rating: #1
+                </div>
             </div>
             <div className={s.info}>
                 <div className={s.name}>{props?.user?.name || props?.user?.nickname || "Name unknown"}</div>
+
                 <div className={s.email}>{props?.user?.email || props?.user?.nickname}</div>
                 <div className={s.status}>
                     {isEditStatus
@@ -40,6 +49,9 @@ const UserInfo = (props) => {
                 </div>
                 <div className={s.score}>Score: <span>100000</span></div>
                 <div className={s.quests}>Quests created: <span>10</span></div>
+                {!props.userApiData.isAdmin &&
+                    <button className={s.adminButton} onClick={handleBecomeAdmin}>Become Admin</button>
+                }
             </div>
         </div>
     )
