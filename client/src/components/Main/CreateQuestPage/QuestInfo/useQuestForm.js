@@ -1,7 +1,12 @@
 import {useEffect, useState} from "react";
 import {nanoid} from "nanoid";
+import {createQuest} from "../../../../api";
+import {useAuth0} from "@auth0/auth0-react";
 
 function useQuestForm(initialTitle, initialQuestions = {}) {
+
+    const {user} = useAuth0();
+
     const [questInfo, setQuestInfo] = useState({
         title: initialTitle,
         type: "",
@@ -49,12 +54,18 @@ function useQuestForm(initialTitle, initialQuestions = {}) {
         }
     };
 
-    const onSaveQuest = () => {
+    const onSaveQuest = async () => {
         const areRightsAnswers = !questInfo.questions.filter(e => !e.rightAnswer).length;
         const isQuestInfo = questInfo.title && questInfo.description && questInfo.time && questInfo.questions && questInfo.type;
 
+        const quest = {nanoId: nanoid(6), ...questInfo};
+
         if (areRightsAnswers && isQuestInfo) {
-            console.log("Saved Quest Info:", {nanoId: nanoid(6), ...questInfo});
+            await createQuest({
+                nanoId: nanoid(6),
+                email: user.email,
+                ...questInfo
+            }).then(res => console.log(res));
         } else {
             console.log("no right answers or not all info");
             alert("Add right answers to ALL questions and fill ALL fields before saving quest.");

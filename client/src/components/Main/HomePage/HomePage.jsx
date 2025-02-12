@@ -10,17 +10,15 @@ const HomePage = (props) => {
     const [questType, setQuestType] = useState("No type filter");
     const [questFilter, setQuestFilter] = useState("");
 
-
-
     let shownQuestsData;
 
     const getShownQuestsData = (data) => {
         let shownData;
 
         if (questFilter) {
-            shownData = data.filter(e => e.id.includes(questFilter) || e.title.includes(questFilter));
+            shownData = data.filter(e => e.idVisible.includes(questFilter) || e.name.includes(questFilter));
         } else if (questType && questType !== "No type filter") {
-            shownData = data.filter(e => e.type === questType);
+            shownData = data.filter(e => e.genre === questType);
         } else {
             shownData = data;
         }

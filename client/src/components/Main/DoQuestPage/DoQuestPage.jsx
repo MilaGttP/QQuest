@@ -10,6 +10,7 @@ const DoQuestPage = () => {
 
     const {questData, updateQuestData, setSelectedAnswer, addComment, deleteComment} = useDoQuest();
 
+
     const isQuestFinished = questData.status === "finished";
 
     return (

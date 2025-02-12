@@ -14,10 +14,13 @@ const UserPage = (props) => {
     const { userApiData, updateUserApiData } = useApiUser();
 
     useEffect(() => {
+
         // getUserInfo(props.user.nickname)
         //     .then(res => setUserApiData(res.data))
         //     .catch(err => console.log(err.message));
+
     }, []);
+
 
     return (
         <div className={s.userPage}>

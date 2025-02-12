@@ -9,8 +9,6 @@ const QuestionItem = ({question, ...props}) => {
 
     const isRight = question?.selectedAnswer?.toString() === question?.rightAnswer?.toString();
 
-    console.log(question);
-
     return (
         <div className={s.item}>
             <div>

@@ -5,7 +5,9 @@ import searchIcon from "../../../../icons/searchIcon.svg";
 
 const QuestsSearch = (props) => {
 
-    const types = ["No type filter", "Entertainment", "Interactive Studying", "Team Building", "Memes", "Music", "Art", "Animals"];
+    const types = [
+        "No type filter", "Entertainment", "Interactive Studying", "Team Building", "Memes", "Music", "Art", "Animals"
+    ];
 
     return (
         <div className={s.questsSearch}>

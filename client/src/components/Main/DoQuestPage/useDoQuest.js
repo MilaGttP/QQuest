@@ -3,15 +3,15 @@ import {useState} from "react";
 function useDoQuest() {
     const [questData, setQuestData] = useState({
         id: 123,
-        title: "Find sense in your life",
+        title: "This is a quest title",
         status: "inactive",
         currentQuestionIndex: 0,
-        description: "Find sense in your life and live your best life without depression!",
+        description: "This is a description",
         type: "Entertainment",
         img: {},
         rating: 9,
         rate: null,
-        author: "Lizunnn",
+        author: "some_author",
         time: "5 min",
         questions: [
             {
@@ -19,9 +19,8 @@ function useDoQuest() {
                 type: 'Test',
                 text: 'How much will be 2+2?',
                 answers: [
-                    {id: 1, text: "This is a very very very very big text"},
+                    {id: 1, text: "this is an option"},
                     {id: 2, text: 4},
-                    {id: 3, text: "This is a very very very very big text This is a very very very very big text This is a very very very very big textThis is a very very very very big text"},
                 ],
                 rightAnswer: "4",
                 selectedAnswer: "",
@@ -45,8 +44,8 @@ function useDoQuest() {
             },
         ],
         comments: [
-            {id: 1, author: "lizun", text: "i hate my life"},
-            {id: 2, author: "some_guy", text: "i hate vntu"},
+            {id: 1, author: "some_quy01", text: "comment"},
+            {id: 2, author: "some_guy", text: "this is a comment"},
         ]
     });
 

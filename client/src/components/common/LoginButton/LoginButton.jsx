@@ -3,9 +3,14 @@ import s from "./LoginButton.module.css";
 
 
 const LoginButton = () => {
-    const { loginWithRedirect } = useAuth0();
+    const { loginWithRedirect, user } = useAuth0();
 
-    return <button className={s.loginButton} onClick={() => loginWithRedirect()}>Login</button>;
+    const handleLogin = () => {
+        loginWithRedirect();
+        console.log("user: ", user)
+    }
+
+    return <button className={s.loginButton} onClick={handleLogin}>Login</button>;
 };
 
 export default LoginButton;

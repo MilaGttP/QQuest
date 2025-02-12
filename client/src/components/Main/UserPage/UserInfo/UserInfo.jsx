@@ -13,6 +13,7 @@ const UserInfo = (props) => {
         // setUserInfo({status: status}).catch(err => console.log(err.message));
     }
 
+
     const handleBecomeAdmin = () => {
         alert("Sure we believe that you are admin!");
         props.updateUserApiData("isAdmin", true);

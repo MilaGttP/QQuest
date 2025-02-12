@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {nanoid} from "nanoid";
 
 function useOptions(initialOptions = [{id: 1, text: "Answer option", isRight: false,}]) {
 
@@ -7,7 +8,7 @@ function useOptions(initialOptions = [{id: 1, text: "Answer option", isRight: fa
     const onAddOption = () => {
         setOptions(prevOptions => [
             ...prevOptions,
-            { id: prevOptions.length + 1, text: "Answer option", isRight: false }
+            { id: nanoid(4), text: "Answer option", isRight: false }
         ]);
     };
 

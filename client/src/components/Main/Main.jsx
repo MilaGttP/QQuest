@@ -6,19 +6,10 @@ import UserPage from "./UserPage/UserPage";
 import CreateQuestPage from "./CreateQuestPage/CreateQuestPage";
 import DoQuestPage from "./DoQuestPage/DoQuestPage";
 import {useAuth0} from "@auth0/auth0-react";
-import {fetchSomething} from "../../api";
-import { AdvancedImage } from "@cloudinary/react";
-import { Cloudinary } from "@cloudinary/url-gen";
-import { fill } from "@cloudinary/url-gen/actions/resize";
+import {fetchQuests, fetchSomething, register} from "../../api";
 
 
 const Main = () => {
-
-    const cld = new Cloudinary({
-        cloud: {
-            cloudName: "твій_cloud_name", // Замініть на своє ім'я хмари
-        },
-    });
 
     const {user, isAuthenticated} = useAuth0();
 
@@ -42,7 +33,10 @@ const Main = () => {
                     answers: [
                         {id: 1, text: "This is a very very very very big text"},
                         {id: 2, text: 4},
-                        {id: 3, text: "This is a very very very very big text This is a very very very very big text This is a very very very very big textThis is a very very very very big text"},
+                        {
+                            id: 3,
+                            text: "This is a very very very very big text This is a very very very very big text This is a very very very very big textThis is a very very very very big text"
+                        },
                     ],
                     rightAnswer: "4",
                     selectedAnswer: "",
@@ -73,7 +67,10 @@ const Main = () => {
                     answers: [
                         {id: 1, text: "This is a very very very very big text"},
                         {id: 2, text: 4},
-                        {id: 3, text: "This is a very very very very big text This is a very very very very big text This is a very very very very big textThis is a very very very very big text"},
+                        {
+                            id: 3,
+                            text: "This is a very very very very big text This is a very very very very big text This is a very very very very big textThis is a very very very very big text"
+                        },
                     ],
                     rightAnswer: "4",
                     selectedAnswer: "",
@@ -104,7 +101,10 @@ const Main = () => {
                     answers: [
                         {id: 1, text: "This is a very very very very big text"},
                         {id: 2, text: 4},
-                        {id: 3, text: "This is a very very very very big text This is a very very very very big text This is a very very very very big textThis is a very very very very big text"},
+                        {
+                            id: 3,
+                            text: "This is a very very very very big text This is a very very very very big text This is a very very very very big textThis is a very very very very big text"
+                        },
                     ],
                     rightAnswer: "4",
                     selectedAnswer: "",
@@ -121,10 +121,21 @@ const Main = () => {
     ];
 
     useEffect(() => {
-        fetchSomething("user@example.com")
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+        fetchQuests()
+            .then(res => {setQuestsData(res.data);});
     }, []);
+
+    useEffect(() => {
+        if (user?.email) {
+            console.log("user: ", user);
+            register({
+                email: user?.email,
+                name: user?.given_name || user?.name || user?.email,
+                surname: user?.family_name,
+            }).then(res => console.log(res));
+        }
+
+    }, [user?.email]);
 
     return (
         <div className={s.main}>

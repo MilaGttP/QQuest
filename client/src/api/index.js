@@ -1,4 +1,4 @@
-import axiosInstance from "./axiosInstance";
+import {axiosInstance, axiosInstanceJSON} from "./axiosInstance";
 
 const fetchData = async () => {
     try {
@@ -15,38 +15,23 @@ export const fetchSomething = async (email) => {
     try {
         const response = await axiosInstance.post("/Account/Login", {email: email});
 
-        console.log(response.data);
-
     } catch (err) {
         console.log(err.message);
     }
 }
 
-export const setUserInfo = async (userInfo) => {
+export const register = async (user) => {
     try {
-        const response = await axiosInstance().post("/userInfo", userInfo);
-
+        const response = await axiosInstanceJSON.post("/Account/Register", user);
         console.log(response.data);
-
     } catch (err) {
         console.log(err.message);
     }
 }
 
-export const fetchUserInfo = async (nickname) => {
+export const createQuest = async (quest) => {
     try {
-        const response = await axiosInstance().get("/userInfo", nickname);
-
-        console.log(response.data);
-
-    } catch (err) {
-        console.log(err.message);
-    }
-}
-
-export const fetchMyQuests = async (nickname) => {
-    try {
-        const response = await axiosInstance().get("/myQuests", nickname);
+        const response = await axiosInstanceJSON.post("/Quest/Create", quest);
 
         console.log(response.data);
 
@@ -55,34 +40,12 @@ export const fetchMyQuests = async (nickname) => {
     }
 }
 
-export const fetchCompletedQuests = async (nickname) => {
+export const fetchQuests = async (quest) => {
     try {
-        const response = await axiosInstance().get("/completedQuests", nickname);
+        const response = await axiosInstanceJSON.get("/Home/Quests");
 
-        console.log(response.data);
-
-    } catch (err) {
-        console.log(err.message);
-    }
-}
-
-export const setQuestRate = async ({id, rate}) => {
-    try {
-        const response = await axiosInstance().post("/questRate", {id, rate});
-
-        console.log(response.data);
-
-    } catch (err) {
-        console.log(err.message);
-    }
-}
-
-export const fetchComments = async (questId) => {
-    try {
-        const response = await axiosInstance().get(`/quest/${questId}/comments`);
-
-        console.log(response.data);
-
+        // console.log(response.data);
+        return response;
     } catch (err) {
         console.log(err.message);
     }
