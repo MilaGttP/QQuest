@@ -35,5 +35,4 @@ INT20h 25` test project
    ```bash
    cd client
    npm start
-## Посилання на сайт
-http://qquest.42web.io
+
