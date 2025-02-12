@@ -26,7 +26,7 @@ INT20h 25` test project
 
 1. Клонування репозиторію.
    ```bash
-   git clone https://github.com/yourusername/yourproject.git 
+   https://github.com/MilaGttP/QQuest.git 
    cd QQuest
 2. Інсталювання пакету npm
    ```bash
@@ -35,4 +35,5 @@ INT20h 25` test project
    ```bash
    cd client
    npm start
-
+## Посилання на сайт
+http://qquest.42web.io
