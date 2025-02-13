@@ -27,7 +27,7 @@ INT20h 25` test project
 
 1. Клонування репозиторію
    ```bash
-   git clone https://github.com/MilaGttP/QQuest.git 
+   git clone -b develop-frontend --single-branch https://github.com/MilaGttP/QQuest.git
    cd QQuest/client
 2. Встановлення залежностей
    ```bash
