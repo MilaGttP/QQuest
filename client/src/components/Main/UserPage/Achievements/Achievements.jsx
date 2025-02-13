@@ -18,7 +18,7 @@ const Achievements = (props) => {
         { title: "Silver Crown", description: "Third in the ranking", status: "Inactive"},
     ];
 
-    const achievementsData = props?.achievements || defaultAchievementsData;
+    const achievementsData = props?.achievements || [];
 
     return (
         <div className={s.achievements}>
@@ -29,7 +29,7 @@ const Achievements = (props) => {
             </div>
             <div className={s.title}>My achievements</div>
             <div className={s.list}>
-                {achievementsData.map(item =>
+                {achievementsData && achievementsData.map(item =>
                     <AchievementsItem
                         img={item.photo}
                         key={item.title}
