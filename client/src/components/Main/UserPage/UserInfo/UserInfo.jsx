@@ -31,7 +31,7 @@ const UserInfo = (props) => {
                 <img src={props?.user?.picture || cat}/>
                 <div className={s.rating}>
                     {props.userApiData.isAdmin && <div>Admin</div>}
-                    Rating: #1
+                    {/*Rating: #1*/}
                 </div>
             </div>
             <div className={s.info}>
@@ -54,8 +54,8 @@ const UserInfo = (props) => {
                         </span>
                     }
                 </div>
-                <div className={s.score}>Score: <span>100000</span></div>
-                <div className={s.quests}>Quests created: <span>10</span></div>
+                {/*<div className={s.score}>Score: <span>100000</span></div>*/}
+                {/*<div className={s.quests}>Quests created: <span>10</span></div>*/}
                 {!props.userApiData.isAdmin &&
                     <button className={s.adminButton} onClick={handleBecomeAdmin}>Become Admin</button>
                 }
