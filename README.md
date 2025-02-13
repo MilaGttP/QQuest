@@ -23,16 +23,20 @@ INT20h 25` test project
 2. ASP.NET.
 
 ## Інсталяція
+* Примітка: Сервер захощений, необхідно склонувати лише клієнта локально
 
-1. Клонування репозиторію.
+1. Клонування репозиторію
    ```bash
-   https://github.com/MilaGttP/QQuest.git 
-   cd QQuest
-2. Інсталювання пакету npm
+   git clone https://github.com/MilaGttP/QQuest.git 
+   cd QQuest/client
+2. Встановлення залежностей
    ```bash
    npm install
-4. Запуск front-end.
+   ```
+   У випадку неспівпадіння версій
+    ```bash
+   npm install --legacy-peer-deps
+3. Запуск клієнтської частини
    ```bash
-   cd client
    npm start
 
