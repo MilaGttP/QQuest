@@ -3,9 +3,9 @@ import s from "./Rating.module.css";
 import RatingItem from "./RatingItem/RatingItem";
 
 
-const Rating = () => {
+const Rating = (props) => {
 
-    const ratingData = ["yelyzavetanov@gmail.com"];
+    // const ratingData = ["yelyzavetanov@gmail.com"];
 
     return (
         <div className={s.rating}>
@@ -16,7 +16,9 @@ const Rating = () => {
             </div>
             <div className={s.title}>Creators rating</div>
             <div className={s.list}>
-                {ratingData.map(e => <RatingItem number={ratingData.indexOf(e)+1} name={e} key={e}/>)}
+                { props.rating.length &&
+                    props.rating.map(e => <RatingItem number={e.place} ratingItem={e} key={e}/>)
+                }
             </div>
         </div>
     )

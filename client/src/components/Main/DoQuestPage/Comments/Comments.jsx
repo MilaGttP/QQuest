@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import s from "./Comments.module.css";
 import Comment from "./Comment/Comment";
 import {useAuth0} from "@auth0/auth0-react";
+import {addComment} from "../../../../api";
 
 
 const Comments = ({comments, ...props}) => {
@@ -12,7 +13,13 @@ const Comments = ({comments, ...props}) => {
 
     const handleAddComment = () => {
         if (comment) {
-            props.addComment(user.nickname, comment);
+            console.log(comments)
+            props.addComment(user.email, comment);
+            addComment({
+                email: user.email,
+                text: comment,
+                nanoId: props.nanoId
+            })
             setComment("");
         }
     }
@@ -21,7 +28,9 @@ const Comments = ({comments, ...props}) => {
         <div className={s.comments}>
             <div className={s.title}>Comments</div>
             <div className={s.list}>
-                {comments.map(e => <Comment deleteComment={props.deleteComment} key={e.id} comment={e}/>)}
+                {comments?.length &&
+                    comments.map(e => <Comment deleteComment={props.deleteComment} key={e.id} comment={e}/>)
+                }
             </div>
             <div className={s.form}>
                 <input

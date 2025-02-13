@@ -17,7 +17,16 @@ const MyQuests = (props) => {
             <div className={s.title}>My quests</div>
             <div className={s.questsList}>
                 {props.myQuests &&
-                    props.myQuests.map(e => <QuestsListItem doQuest={props.doQuest} key={e.id} questData={e}/>)
+                    props.myQuests.map(e =>
+                        <QuestsListItem
+                            doQuest={props.doQuest}
+                            key={e.id}
+                            questData={e}
+                            isDelete={true}
+                            setMyQuests={props.setMyQuests}
+                            email={props.email}
+                        />
+                    )
                 }
             </div>
             <button onClick={onNewButton} className={s.newButton}>+</button>

@@ -13,6 +13,7 @@ a {
     border-radius: 0.2em;
     /*background: #dadfea;*/
     transition: 0.1s;
+    height: fit-content;
 }
 
 .item:hover {
@@ -57,7 +58,17 @@ a {
 .additional {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 0.9em;
     font-weight: 600;
     color: #9da6b8;
+}
+
+.delete {
+    margin-top: 0.2em;
+    padding: 0.2em;
+}
+
+.delete:hover {
+    background: #cfe0f8;
 }

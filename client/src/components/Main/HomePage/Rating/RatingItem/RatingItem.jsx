@@ -5,10 +5,11 @@ import s from "./RatingItem.module.css";
 const RatingItem = (props) => {
     return (
         <div className={s.ratingItem}>
-            <div>{props.number}. <span className={s.title}>{props.name}</span></div>
+            <div>{props.ratingItem.place}.
+                <span className={s.title}>{props.ratingItem.email}</span>
+            </div>
             <div className={s.info}>
-                <div>quests: 10</div>
-                <div>score: 10</div>
+                <div>quests: {props.ratingItem.score}</div>
             </div>
         </div>
     )

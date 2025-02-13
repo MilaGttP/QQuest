@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import s from "./UserInfo.module.css";
 import cat from "../../../../img/cat.png";
+import {getUserDescription, updateUserDescription} from "../../../../api";
 
 
 const UserInfo = (props) => {
@@ -10,9 +11,14 @@ const UserInfo = (props) => {
 
     const onSaveStatus = () => {
         setIsEditStatus(false);
+        updateUserDescription({email: props.user.email, text: status}).then(res => res);
         // setUserInfo({status: status}).catch(err => console.log(err.message));
     }
 
+    useEffect(() => {
+        getUserDescription(props.user.email)
+            .then(res => setStatus(res.description));
+    }, [])
 
     const handleBecomeAdmin = () => {
         alert("Sure we believe that you are admin!");

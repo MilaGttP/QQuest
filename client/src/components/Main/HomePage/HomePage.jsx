@@ -1,16 +1,22 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import s from "./HomePage.module.css";
 import Rating from "./Rating/Rating";
 import QuestsList from "./QuestsList/QuestsList";
 import QuestsSearch from "./QuestsSearch/QuestsSearch";
+import {fetchRating} from "../../../api";
 
 
 const HomePage = (props) => {
 
     const [questType, setQuestType] = useState("No type filter");
     const [questFilter, setQuestFilter] = useState("");
+    const [rating, setRating] = useState([]);
 
     let shownQuestsData;
+
+    useEffect(() => {
+        fetchRating().then(res => setRating(res));
+    }, []);
 
     const getShownQuestsData = (data) => {
         let shownData;
@@ -42,7 +48,7 @@ const HomePage = (props) => {
                     doQuest={props.doQuest}
                 />
             </div>
-            <Rating/>
+            <Rating rating={rating}/>
         </div>
     )
 }

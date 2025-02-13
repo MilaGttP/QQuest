@@ -22,9 +22,6 @@ const FinishedQuest = (props) => {
     ).length;
 
     useEffect(() => {
-
-        console.log("finished: ", props.questData, user.email);
-
         completeQuest({
             nanoId: props.questData.id,
             email: user.email

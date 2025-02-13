@@ -129,12 +129,11 @@ const Main = () => {
 
     useEffect(() => {
         if (user?.email) {
-            console.log("user: ", user);
             register({
                 email: user?.email,
                 name: user?.given_name || user?.name || user?.email,
                 surname: user?.family_name,
-            }).then(res => console.log(res));
+            }).then(res => res);
         }
 
     }, [user?.email]);

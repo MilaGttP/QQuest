@@ -1,18 +1,17 @@
 import React from "react";
 import s from "./QuestsListItem.module.css";
 import cat from "../../../img/cat.png";
-import {Link} from "react-router-dom";
-import {fetchQuestions} from "../../../api";
+import {Link, useNavigate} from "react-router-dom";
+import {deleteQuest, fetchCreatedQuests, fetchQuestions} from "../../../api";
 
 
 const QuestsListItem = ({questData, ...props}) => {
 
     const {updateQuestData} = props.doQuest;
+    const navigate = useNavigate();
 
     const handleSelectQuest = () => {
-        console.log(questData.idVisible);
         fetchQuestions(questData.idVisible).then(res => {
-                console.log(res)
                 updateQuestData("questions", res);
                 updateQuestData("title", questData.name);
                 updateQuestData("type", questData.genre);
@@ -20,27 +19,37 @@ const QuestsListItem = ({questData, ...props}) => {
                 updateQuestData("time", questData.timeLimit);
                 updateQuestData("id", questData.idVisible);
                 updateQuestData("status", "inactive");
-                console.log(questData);
             }
+        );
+        navigate('/quest');
+    }
+
+    const handleDelete = () => {
+        deleteQuest(questData.idVisible).then(res =>
+            fetchCreatedQuests(props.email)
         );
     }
 
     return (
-        <Link to={"/quest"} onClick={handleSelectQuest}>
+        // <Link to={"/quest"} onClick={handleSelectQuest}>
             <div className={s.item}>
                 <img src={questData.photo || cat}/>
                 <div className={s.info}>
-                    <div className={s.title}><span>{questData.name}</span></div>
+                    <div className={s.title} onClick={handleSelectQuest}>
+                        <span>{questData.name}</span>
+                    </div>
                     <div className={s.additional}>{questData.authorEmail}</div>
                     <div className={s.additional}>
-                        <span>{questData.avgRate}/10</span>
+                        {props.isDelete &&
+                            <button onClick={handleDelete} className={s.delete}>Delete</button>
+                        }
                         <span>{questData.genre}</span>
                         <span>{questData.idVisible}</span>
                     </div>
                     <div className={s.description}>{questData.description}</div>
                 </div>
             </div>
-        </Link>
+        // </Link>
     )
 }
 

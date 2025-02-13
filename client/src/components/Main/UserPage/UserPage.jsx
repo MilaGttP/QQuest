@@ -26,6 +26,10 @@ const UserPage = (props) => {
 
     }, []);
 
+    useEffect(() => {
+
+    }, [myQuests]);
+
     return (
         <div className={s.userPage}>
             <div className={s.userContainer}>
@@ -37,9 +41,11 @@ const UserPage = (props) => {
                 <Achievements achievements={achievements}/>
             </div>
             <MyQuests
+                setMyQuests={setMyQuests}
                 doQuest={props.doQuest}
                 defaultQuestsData={props.defaultQuestsData}
                 myQuests={myQuests}
+                email={user.email}
             />
             <CompletedQuests
                 doQuest={props.doQuest}
