@@ -25,4 +25,16 @@ namespace qquest_backend.Models
         [ForeignKey("UserId")]
         public User? User { get; set; }
     }
+
+    public class QuestCommentModel
+    {
+        [Required]
+        public string text { get; set; }
+
+        [Required]
+        public string nanoId { get; set; }
+
+        [Required]
+        public string email { get; set; }
+    }
 }

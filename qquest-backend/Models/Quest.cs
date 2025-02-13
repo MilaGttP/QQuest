@@ -33,9 +33,8 @@ namespace qquest_backend.Models
         [StringLength(128)]
         public string? Description { get; set; }
 
-        public TimeSpan? TimeLimit { get; set; }
-
-        public DateTime Expiring { get; set; }
+        [StringLength(8)]
+        public string? TimeLimit { get; set; }
 
         [StringLength(128)]
         public string? Photo { get; set; }

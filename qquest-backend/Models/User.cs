@@ -11,11 +11,11 @@ namespace qquest_backend.Models
 
         [Required]
         [StringLength(32)]
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }
 
         [Required]
         [StringLength(32)]
-        public string Surname { get; set; } = string.Empty;
+        public string? Surname { get; set; }
 
         [Required]
         [StringLength(32)]

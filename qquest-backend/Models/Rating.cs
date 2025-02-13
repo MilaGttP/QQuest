@@ -21,4 +21,12 @@ namespace qquest_backend.Models
         [ForeignKey("UserId")]
         public User User { get; set; } = null!;
     }
+
+    public class RatingModel
+    {
+        public int place { get; set; }
+
+        public int score { get; set; }
+        public string email { get; set; }
+    }
 }

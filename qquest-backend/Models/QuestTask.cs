@@ -20,6 +20,9 @@ namespace qquest_backend.Models
         [StringLength(1024)]
         public string? Answers { get; set; }
 
+        [StringLength(16)]
+        public int ContentId { get; set; }
+
         [Required]
         [StringLength(256)]
         public string RightAnswer { get; set; } = string.Empty;
