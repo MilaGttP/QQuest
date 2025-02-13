@@ -32,7 +32,7 @@ const HomePage = (props) => {
         return shownData;
     }
 
-    shownQuestsData = getShownQuestsData(props.questsData || props.defaultQuestsData);
+    shownQuestsData = getShownQuestsData(props.questsData || []);
 
     return (
         <div className={s.homePage}>
