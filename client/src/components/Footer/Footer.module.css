@@ -4,3 +4,8 @@ footer {
     box-sizing: border-box;
     border-top: 2px #9da6b8 solid;
 }
+
+.link {
+    font-weight: 600;
+    padding-left: 0.5em;
+}

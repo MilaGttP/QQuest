@@ -2,10 +2,12 @@ import {useEffect, useState} from "react";
 import {nanoid} from "nanoid";
 import {createQuest} from "../../../../api";
 import {useAuth0} from "@auth0/auth0-react";
+import {useNavigate} from "react-router-dom";
 
 function useQuestForm(initialTitle, initialQuestions = {}) {
 
     const {user} = useAuth0();
+    const navigate = useNavigate();
 
     const [questInfo, setQuestInfo] = useState({
         title: initialTitle,
@@ -65,7 +67,10 @@ function useQuestForm(initialTitle, initialQuestions = {}) {
                 nanoId: nanoid(6),
                 email: user.email,
                 ...questInfo
-            }).then(res => console.log(res));
+            }).then(res => {
+                navigate('/account');
+                console.log(res);
+            });
         } else {
             console.log("no right answers or not all info");
             alert("Add right answers to ALL questions and fill ALL fields before saving quest.");
