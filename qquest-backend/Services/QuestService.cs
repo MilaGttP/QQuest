@@ -9,6 +9,7 @@ namespace qquest_backend.Services
         private readonly QQuestDbContext _context;
         private readonly IUserService _userService;
         private readonly IRatingService _ratingService;
+
         public QuestService(QQuestDbContext context, IUserService userService, IRatingService ratingService)
         {
             _context = context;
@@ -41,10 +42,35 @@ namespace qquest_backend.Services
             await _context.SaveChangesAsync();
         }
 
-
-        public Task DeleteQuestById(int userId, int questId)
+        public async Task DeleteQuestByVisibleId(string nanoId)
         {
-            throw new NotImplementedException();
+            var quest = await _context.Quests
+                .Where(q => q.IdVisible == nanoId)
+                .FirstOrDefaultAsync();
+
+            if (quest == null)
+            {
+                throw new ArgumentException("Quest with the given nanoId not found.");
+            }
+
+            var comments = await _context.QuestComments
+                .Where(qc => qc.QuestId == quest.Id)
+                .ToListAsync();
+            _context.QuestComments.RemoveRange(comments);
+
+            var tasks = await _context.QuestTasks
+                .Where(qt => qt.QuestId == quest.Id)
+                .ToListAsync();
+            _context.QuestTasks.RemoveRange(tasks);
+
+            var completedQuests = await _context.CompletedQuestsUsers
+                .Where(cq => cq.QuestId == quest.Id)
+                .ToListAsync();
+            _context.CompletedQuestsUsers.RemoveRange(completedQuests);
+
+            _context.Quests.Remove(quest);
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<QuestWithAuthorEmail>> GetAllQuests()
@@ -90,41 +116,6 @@ namespace qquest_backend.Services
                 nanoId = nanoId,
                 email = c.User?.Email ?? "unknown"
             });
-        }
-
-        public Task<Quest> GetQuestById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Quest> GetQuestByName(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Quest> GetQuestByVisibleId(string visibleId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> GetQuestDescriptionIdById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> GetQuestGenreById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> GetQuestScoreById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<string> GetQuestVisibleIdById(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<QuestTask>> GetTasksByQuestVisibleId(string visibleId)
@@ -189,22 +180,4 @@ namespace qquest_backend.Services
             await _userService.RatingBadge(userId);
         }
     }
-}
-
-
-
-// FOR GETTING GUEST WITH USER EMAIL
-public class QuestWithAuthorEmail
-{
-    public int Id { get; set; }
-    public string IdVisible { get; set; } = string.Empty;
-    public string Name { get; set; } = string.Empty;
-    public string Genre { get; set; } = string.Empty;
-    public int AvgRate { get; set; }
-    public int RatesQuan { get; set; }
-    public int CompletedQuan { get; set; }
-    public string? Description { get; set; }
-    public string? TimeLimit { get; set; }
-    public string? Photo { get; set; }
-    public string AuthorEmail { get; set; } = string.Empty;
 }

@@ -33,4 +33,26 @@ namespace qquest_backend.Models
         [ForeignKey("QuestId")]
         public Quest? Quest { get; set; }
     }
+
+    public class QuestionModel
+    {
+        public int id { get; set; }
+
+        [Required]
+        public string text { get; set; }
+
+        [Required]
+        public string type { get; set; }
+
+        [Required]
+        public string rightAnswer { get; set; }
+        public List<QuestionAnswerModel>? answers { get; set; }
+    }
+
+    public class QuestionAnswerModel
+    {
+        public string? id { get; set; }
+        public bool isRight { get; set; }
+        public string? text { get; set; }
+    }
 }

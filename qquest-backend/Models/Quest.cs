@@ -45,4 +45,54 @@ namespace qquest_backend.Models
         [ForeignKey("AuthorId")]
         public User Author { get; set; } = null!;
     }
+
+    public class QuestCompleteModel
+    {
+        [Required]
+        public string email { get; set; } = string.Empty;
+
+        [Required]
+        public string nanoId { get; set; } = string.Empty;
+    }
+
+    public class QuestWithAuthorEmail
+    {
+        public int Id { get; set; }
+        public string IdVisible { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        public string Genre { get; set; } = string.Empty;
+        public int AvgRate { get; set; }
+        public int RatesQuan { get; set; }
+        public int CompletedQuan { get; set; }
+        public string? Description { get; set; }
+        public string? TimeLimit { get; set; }
+        public string? Photo { get; set; }
+        public string AuthorEmail { get; set; } = string.Empty;
+    }
+
+    public class QuestCreateModel
+    {
+        [Required]
+        public string email { get; set; } = string.Empty;
+
+        [Required]
+        public string description { get; set; } = string.Empty;
+
+        [Required]
+        public string nanoId { get; set; } = string.Empty;
+
+        public string? time { get; set; }
+
+        [Required]
+        public string title { get; set; } = string.Empty;
+
+        [Required]
+        public string type { get; set; } = string.Empty;
+
+        [Required]
+        public string img { get; set; } = null!;
+
+        [Required]
+        public List<QuestionModel> questions { get; set; } = new List<QuestionModel>();
+    }
 }

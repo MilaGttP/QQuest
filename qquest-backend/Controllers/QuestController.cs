@@ -86,55 +86,20 @@ namespace qquest_backend.Controllers
 
             return Ok(comments);
         }
+
+        [HttpDelete("DeleteQuest")]
+        public async Task<IActionResult> DeleteQuest([FromQuery] string nanoId)
+        {
+            try
+            {
+                await _questService.DeleteQuestByVisibleId(nanoId);
+
+                return Ok(new { message = "Quest successfully deleted." });
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+        }
     }
-}
-
-
-// FOR QUEST CREATION
-public class QuestCreateModel
-{
-    [Required]
-    public string email { get; set; } = string.Empty;
-
-    [Required]
-    public string description { get; set; } = string.Empty;
-
-    [Required]
-    public string nanoId { get; set; } = string.Empty;
-
-    public string? time { get; set; }
-
-    [Required]
-    public string title { get; set; } = string.Empty;
-
-    [Required]
-    public string type { get; set; } = string.Empty;
-
-    [Required]
-    public string img { get; set; } = null!;
-
-    [Required]
-    public List<QuestionModel> questions { get; set; } = new List<QuestionModel>();
-}
-
-public class QuestionModel
-{
-    public int id { get; set; }
-
-    [Required]
-    public string text { get; set; }
-
-    [Required]
-    public string type { get; set; }
-
-    [Required]
-    public string rightAnswer { get; set; }
-    public List<QuestionAnswerModel>? answers { get; set; }
-}
-
-public class QuestionAnswerModel
-{
-    public string? id { get; set; }
-    public bool isRight { get; set; }
-    public string? text { get; set; }
 }

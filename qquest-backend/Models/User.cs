@@ -31,4 +31,10 @@ namespace qquest_backend.Models
         [Required]
         public bool IsAdmin { get; set; }
     }
+
+    public class UserModel
+    {
+        public string email { get; set; }
+        public string text { get; set; }
+    }
 }

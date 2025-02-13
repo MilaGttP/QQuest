@@ -165,14 +165,43 @@ namespace qquest_backend.Controllers
                 return NotFound(ex.Message);
             }
         }
+
+        [HttpPut("UpdateUserPhoto")]
+        public async Task<IActionResult> UpdateUserPhoto([FromBody] UserModel model)
+        {
+            try
+            {
+                await _userService.UpdateUserPhotoByEmail(model.email, model.text);
+
+                return Ok(new { message = "User photo updated successfully." });
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpPut("UpdateUserDescription")]
+        public async Task<IActionResult> UpdateUserDescription([FromBody] UserModel model)
+        {
+            try
+            {
+                await _userService.UpdateDescriptionByEmail(model.email, model.text);
+
+                return Ok(new { message = "Description updated successfully." });
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
-}
-
-public class QuestCompleteModel
-{
-    [Required]
-    public string email { get; set; } = string.Empty;
-
-    [Required]
-    public string nanoId { get; set; } = string.Empty;
 }

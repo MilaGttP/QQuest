@@ -260,14 +260,36 @@ namespace qquest_backend.Services
             return badges;
         }
 
-        public Task UpdateUserPhotoById(int id, string photoUrl)
+        public async Task UpdateUserPhotoByEmail(string email, string photoUrl)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users
+                .Where(u => u.Email == email)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                throw new ArgumentException("User with the given email not found.");
+            }
+
+            user.Photo = photoUrl;
+
+            await _context.SaveChangesAsync();
         }
 
-        public Task UpdateDescriptionById(int id, string description)
+        public async Task UpdateDescriptionByEmail(string email, string description)
         {
-            throw new NotImplementedException();
+            var user = await _context.Users
+                .Where(u => u.Email == email)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                throw new ArgumentException("User with the given email not found.");
+            }
+
+            user.Description = description;
+
+            await _context.SaveChangesAsync();
         }
 
         public async Task CompletedUserQuest(string email, string visibleId)

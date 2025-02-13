@@ -12,8 +12,8 @@ namespace qquest_backend.Services
         Task<bool> IsUserInDatabase(string email);
         Task<int> GetQuantityOfCreatedQuestsById(int id);
         Task<IEnumerable<Badge>> GetUserBadgesByEmail(string email);
-        Task UpdateUserPhotoById(int id, string photoUrl);
-        Task UpdateDescriptionById(int id, string description);
+        Task UpdateUserPhotoByEmail(string email, string photoUrl);
+        Task UpdateDescriptionByEmail(string email, string description);
         Task<User> RegisterUser(User user);
         Task AddUserBaseBadge(User user);
         Task CreatedQuestsBadge(int userId);
