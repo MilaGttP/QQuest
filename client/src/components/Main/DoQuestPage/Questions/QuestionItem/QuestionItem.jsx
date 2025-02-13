@@ -14,7 +14,7 @@ const QuestionItem = ({question, ...props}) => {
             <div>
                 <span className={s.number}>{props.number}.</span>
                 <span className={s.title}>
-                    {props.isQuestFinished || isCompleted || isCurrent ? question.text : "Question"}
+                    {props.isQuestFinished || isCompleted || isCurrent ? question.title : "Question"}
                 </span>
             </div>
             {props.isQuestFinished

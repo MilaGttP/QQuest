@@ -8,7 +8,9 @@ const completedQuests = (props) => {
         <div className={s.completedQuests}>
             <div className={s.title}>Completed quests</div>
             <div className={s.questsList}>
-                {props.defaultQuestsData.map(e => <QuestsListItem key={e.id} questData={e}/>)}
+                {props.completedQuests &&
+                    props.completedQuests.map(e => <QuestsListItem doQuest={props.doQuest} key={e.id} questData={e}/>)
+                }
             </div>
         </div>
     )

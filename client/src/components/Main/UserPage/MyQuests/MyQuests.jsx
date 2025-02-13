@@ -16,7 +16,9 @@ const MyQuests = (props) => {
         <div className={s.myQuests}>
             <div className={s.title}>My quests</div>
             <div className={s.questsList}>
-                {props.defaultQuestsData.map(e => <QuestsListItem key={e.id} questData={e}/>)}
+                {props.myQuests &&
+                    props.myQuests.map(e => <QuestsListItem doQuest={props.doQuest} key={e.id} questData={e}/>)
+                }
             </div>
             <button onClick={onNewButton} className={s.newButton}>+</button>
         </div>

@@ -14,7 +14,7 @@ const fetchData = async () => {
 export const fetchSomething = async (email) => {
     try {
         const response = await axiosInstance.post("/Account/Login", {email: email});
-
+        return response.data;
     } catch (err) {
         console.log(err.message);
     }
@@ -23,7 +23,6 @@ export const fetchSomething = async (email) => {
 export const register = async (user) => {
     try {
         const response = await axiosInstanceJSON.post("/Account/Register", user);
-        console.log(response.data);
     } catch (err) {
         console.log(err.message);
     }
@@ -40,11 +39,63 @@ export const createQuest = async (quest) => {
     }
 }
 
-export const fetchQuests = async (quest) => {
+export const fetchCreatedQuests = async (email) => {
+    try {
+        const response = await axiosInstance.get(
+            `/Account/CreatedQuests?email=${email}`);
+
+        return response.data;
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export const fetchCompletedQuests = async (email) => {
+    try {
+        const response = await axiosInstance.get(
+            `/Account/PassedQuests?email=${email}`);
+
+        return response.data;
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export const fetchAchievements = async (email) => {
+    try {
+        const response = await axiosInstance.get(
+            `/Account/GetUserBadges?email=${email}`);
+
+        return response.data;
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export const fetchQuestions = async (nanoId) => {
+    try {
+        const response = await axiosInstance.post("/Quest/GetQuestTasks/",
+            {nanoId: nanoId}
+        );
+
+        return response.data;
+    } catch (err) {
+        console.log(err.message);
+    }
+}
+
+export const fetchQuests = async () => {
     try {
         const response = await axiosInstanceJSON.get("/Home/Quests");
+        return response;
+    } catch (err) {
+        console.log(err.message);
+    }
+}
 
-        // console.log(response.data);
+export const completeQuest = async (quest) => {
+    try {
+        const response = await axiosInstanceJSON.post("/Account/CompletedUserQuest", quest);
         return response;
     } catch (err) {
         console.log(err.message);

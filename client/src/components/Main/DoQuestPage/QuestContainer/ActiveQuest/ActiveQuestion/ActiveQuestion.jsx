@@ -11,6 +11,8 @@ const ActiveQuestion = ({question, setSelectedAnswer, ...props}) => {
         setSelectedAnswer(props.currentQuestionIndex, text);
     }
 
+    // console.log("split: ", question.answers.split(";"));
+
     const handleNext = () => {
 
         const nextQuestionIndex = props.currentQuestionIndex + 1;
@@ -31,16 +33,16 @@ const ActiveQuestion = ({question, setSelectedAnswer, ...props}) => {
 
     return (
         <div className={s.activeQuestion}>
-            <div className={s.title}>{question.text}</div>
+            <div className={s.title}>{question.title}</div>
             {question.type === "Test" && question.answers.length &&
                 <div className={s.answers}>
-                    {question.answers.map(e =>
+                    {question.answers.split(";").map(e =>
                         <div className={s.answer}>
                             <span
-                                className={selectedAnswer === e.text ? s.selectedCheckbox : s.checkbox}
-                                onClick={() => handleSelectAnswer(e.text)}
+                                className={selectedAnswer === e ? s.selectedCheckbox : s.checkbox}
+                                onClick={() => handleSelectAnswer(e)}
                             ></span>
-                            {e.text}
+                            {e}
                         </div>
                     )}
                 </div>
@@ -57,13 +59,13 @@ const ActiveQuestion = ({question, setSelectedAnswer, ...props}) => {
             }
             {question.type === "ImageSearch" &&
                 <div className={s.imageSearch}>
-                    {question.answers.map(e =>
+                    {question.answers.split(";").map(e =>
                         <div className={s.imgAnswer}>
                             <span
-                                className={selectedAnswer === e.imgUrl ? s.selectedCheckbox : s.checkbox}
-                                onClick={() => handleSelectAnswer(e.imgUrl)}
+                                className={selectedAnswer === e ? s.selectedCheckbox : s.checkbox}
+                                onClick={() => handleSelectAnswer(e)}
                             ></span>
-                            <img src={e.imgUrl}/>
+                            <img src={e}/>
                         </div>
                     )}
                 </div>

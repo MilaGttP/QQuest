@@ -47,7 +47,7 @@ function useQuestionEditor(props) {
                 break;
             case "ImageSearch":
                 answers = imageOptions;
-                right = answers.find(e => e.isRight).imgUrl || "";
+                right = answers.find(e => e.isRight).text || "";
                 // console.log(answers, right);
                 break;
             default:

@@ -5,7 +5,7 @@ import RatingItem from "./RatingItem/RatingItem";
 
 const Rating = () => {
 
-    const ratingData = ["user 1", "user 2", "user 3", "user 4", "user 5", "user 6"];
+    const ratingData = ["yelyzavetanov@gmail.com"];
 
     return (
         <div className={s.rating}>

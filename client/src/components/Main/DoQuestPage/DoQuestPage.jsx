@@ -6,10 +6,9 @@ import useDoQuest from "./useDoQuest";
 import Comments from "./Comments/Comments";
 
 
-const DoQuestPage = () => {
+const DoQuestPage = (props) => {
 
-    const {questData, updateQuestData, setSelectedAnswer, addComment, deleteComment} = useDoQuest();
-
+    const {questData, updateQuestData, setSelectedAnswer, addComment, deleteComment} = props.doQuest;
 
     const isQuestFinished = questData.status === "finished";
 

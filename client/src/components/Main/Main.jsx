@@ -7,11 +7,13 @@ import CreateQuestPage from "./CreateQuestPage/CreateQuestPage";
 import DoQuestPage from "./DoQuestPage/DoQuestPage";
 import {useAuth0} from "@auth0/auth0-react";
 import {fetchQuests, fetchSomething, register} from "../../api";
+import useDoQuest from "./DoQuestPage/useDoQuest";
 
 
 const Main = () => {
 
     const {user, isAuthenticated} = useAuth0();
+    const doQuest = useDoQuest();
 
     const [questsData, setQuestsData] = useState(null);
 
@@ -141,13 +143,17 @@ const Main = () => {
         <div className={s.main}>
             <Routes>
                 <Route path={"/"} element={
-                    <HomePage questsData={questsData} defaultQuestsData={defaultQuestsData}/>
+                    <HomePage
+                        questsData={questsData}
+                        defaultQuestsData={defaultQuestsData}
+                        doQuest={doQuest}
+                    />
                 }/>
                 {isAuthenticated && <Route path={"/account"} element={
-                    <UserPage defaultQuestsData={defaultQuestsData}/>
+                    <UserPage defaultQuestsData={defaultQuestsData} doQuest={doQuest}/>
                 }/>}
                 <Route path={"/create"} element={<CreateQuestPage/>}/>
-                <Route path={"/quest"} element={<DoQuestPage/>}/>
+                <Route path={"/quest"} element={<DoQuestPage doQuest={doQuest}/>}/>
             </Routes>
         </div>
     )

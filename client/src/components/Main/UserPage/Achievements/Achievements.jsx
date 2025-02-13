@@ -31,8 +31,9 @@ const Achievements = (props) => {
             <div className={s.list}>
                 {achievementsData.map(item =>
                     <AchievementsItem
+                        img={item.photo}
                         key={item.title}
-                        title={item.title}
+                        title={item.name}
                         description={item.description}
                         status={item.status}
                     />

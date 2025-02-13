@@ -8,7 +8,7 @@ const RatingItem = (props) => {
             <div>{props.number}. <span className={s.title}>{props.name}</span></div>
             <div className={s.info}>
                 <div>quests: 10</div>
-                <div>score: 10000000000</div>
+                <div>score: 10</div>
             </div>
         </div>
     )

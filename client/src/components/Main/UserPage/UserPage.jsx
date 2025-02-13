@@ -6,6 +6,7 @@ import UserInfo from "./UserInfo/UserInfo";
 import CompletedQuests from "./CompletedQuests/CompletedQuests";
 import {useAuth0} from "@auth0/auth0-react";
 import {useApiUser} from "../../../context/apiUserContext";
+import {fetchAchievements, fetchCompletedQuests, fetchCreatedQuests} from "../../../api";
 
 
 const UserPage = (props) => {
@@ -13,14 +14,17 @@ const UserPage = (props) => {
     const {user, isAuthenticated, isLoading} = useAuth0();
     const { userApiData, updateUserApiData } = useApiUser();
 
+    const [myQuests, setMyQuests] = useState([]);
+    const [completedQuests, setCompletedQuests] = useState([]);
+    const [achievements, setAchievements] = useState([]);
+
     useEffect(() => {
 
-        // getUserInfo(props.user.nickname)
-        //     .then(res => setUserApiData(res.data))
-        //     .catch(err => console.log(err.message));
+        fetchCreatedQuests(user.email).then(res => setMyQuests(res));
+        fetchCompletedQuests(user.email).then(res => setCompletedQuests(res));
+        fetchAchievements(user.email).then(res => setAchievements(res));
 
     }, []);
-
 
     return (
         <div className={s.userPage}>
@@ -30,10 +34,18 @@ const UserPage = (props) => {
                     userApiData={userApiData}
                     updateUserApiData={updateUserApiData}
                 />
-                <Achievements achievements={userApiData?.achievements}/>
+                <Achievements achievements={achievements}/>
             </div>
-            <MyQuests defaultQuestsData={props.defaultQuestsData}/>
-            <CompletedQuests defaultQuestsData={props.defaultQuestsData}/>
+            <MyQuests
+                doQuest={props.doQuest}
+                defaultQuestsData={props.defaultQuestsData}
+                myQuests={myQuests}
+            />
+            <CompletedQuests
+                doQuest={props.doQuest}
+                defaultQuestsData={props.defaultQuestsData}
+                completedQuests={completedQuests}
+            />
         </div>
     )
 }

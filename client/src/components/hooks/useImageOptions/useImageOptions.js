@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {nanoid} from "nanoid";
 
-function useImageOptions(initialOptions = [{ id: 1, imgUrl: "", isRight: false }]) {
+function useImageOptions(initialOptions = [{ id: 1, text: "", isRight: false }]) {
     const [imageOptions, setImageOptions] = useState(initialOptions);
 
     const uploadImageToCloudinary = async (file) => {
@@ -33,7 +33,7 @@ function useImageOptions(initialOptions = [{ id: 1, imgUrl: "", isRight: false }
 
         setImageOptions((prevOptions) =>
             prevOptions.map(option =>
-                option.id === id ? { ...option, imgUrl: uploadedImage } : option
+                option.id === id ? { ...option, text: uploadedImage } : option
             )
         );
     };
@@ -42,7 +42,7 @@ function useImageOptions(initialOptions = [{ id: 1, imgUrl: "", isRight: false }
     const onImgAddOption = () => {
         setImageOptions(prevOptions => [
             ...prevOptions,
-            { id: nanoid(4), imgUrl: "", isRight: false }
+            { id: nanoid(4), text: "", isRight: false }
         ]);
     };
 

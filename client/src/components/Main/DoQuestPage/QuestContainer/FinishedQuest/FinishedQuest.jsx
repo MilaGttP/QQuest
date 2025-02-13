@@ -1,8 +1,12 @@
-import React from "react";
+import React, {useEffect} from "react";
 import s from "./FinishedQuest.module.css";
+import {completeQuest} from "../../../../../api";
+import {useAuth0} from "@auth0/auth0-react";
 
 
 const FinishedQuest = (props) => {
+
+    const {user} = useAuth0();
 
     const rates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -14,8 +18,18 @@ const FinishedQuest = (props) => {
     const questionsAmount = props.questData.questions.length;
 
     const rightAnswers = props.questData.questions.filter(
-        e => e.rightAnswer.toString() === e.selectedAnswer.toString()
+        e => e?.rightAnswer?.toString() === e?.selectedAnswer?.toString()
     ).length;
+
+    useEffect(() => {
+
+        console.log("finished: ", props.questData, user.email);
+
+        completeQuest({
+            nanoId: props.questData.id,
+            email: user.email
+        }).then(res => console.log(res));
+    }, []);
 
     const handleRate = (rate) => {
         props.updateQuestData("rate", rate);

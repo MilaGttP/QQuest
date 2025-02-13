@@ -37,7 +37,10 @@ const HomePage = (props) => {
                     questFilter={questFilter}
                     setQuestFlter={setQuestFilter}
                 />
-                <QuestsList questsData={shownQuestsData}/>
+                <QuestsList
+                    questsData={shownQuestsData}
+                    doQuest={props.doQuest}
+                />
             </div>
             <Rating/>
         </div>
