@@ -203,5 +203,23 @@ namespace qquest_backend.Controllers
                 return BadRequest(new { message = ex.Message });
             }
         }
+
+        [HttpGet("GetDescription")]
+        public async Task<IActionResult> GetDescription([FromQuery] string email)
+        {
+            try
+            {
+                var description = await _userService.GetUserDescription(email);
+                return Ok(new { Description = description });
+            }
+            catch (ArgumentException ex)
+            {
+                return NotFound(new { Message = ex.Message });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { Message = ex.Message });
+            }
+        }
     }
 }

@@ -333,5 +333,18 @@ namespace qquest_backend.Services
             await _context.SaveChangesAsync();
         }
 
+        public async Task<string> GetUserDescription(string email)
+        {
+            var user = await _context.Users
+                .Where(u => u.Email == email)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                throw new ArgumentException("User with the given email not found.");
+            }
+
+            return user.Description ?? "No description available.";
+        }
     }
 }

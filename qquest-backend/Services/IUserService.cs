@@ -22,5 +22,6 @@ namespace qquest_backend.Services
         Task CompletedUserQuest(string email, string visibleId);
         Task RatingBadge(int userId);
         Task<int> GetUserPlaceInRating(int userId);
+        Task<string> GetUserDescription(string email);
     }
 }
